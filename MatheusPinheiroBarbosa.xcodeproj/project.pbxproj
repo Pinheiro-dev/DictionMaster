@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D96EA752B72A0AF00FCD59D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */; };
 		9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */; };
-		9D96EA792B72A0AF00FCD59D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA782B72A0AF00FCD59D /* ViewController.swift */; };
-		9D96EA7C2B72A0AF00FCD59D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D96EA7A2B72A0AF00FCD59D /* Main.storyboard */; };
+		9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */; };
 		9D96EA7E2B72A0B100FCD59D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */; };
 		9D96EA812B72A0B100FCD59D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D96EA7F2B72A0B100FCD59D /* LaunchScreen.storyboard */; };
 		9D96EA8C2B72A0B100FCD59D /* DictionMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA8B2B72A0B100FCD59D /* DictionMasterTests.swift */; };
@@ -25,6 +24,9 @@
 		9DDD3DBA2B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB12B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf */; };
 		9DDD3DBB2B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB22B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf */; };
 		9DDD3DBC2B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB32B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf */; };
+		9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */; };
+		9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DC82B72D97D0017BD10 /* DMPill.swift */; };
+		9DDD3DCB2B72DC560017BD10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DCA2B72DC560017BD10 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +50,7 @@
 		9D96EA712B72A0AF00FCD59D /* MatheusPinheiroBarbosa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatheusPinheiroBarbosa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D96EA782B72A0AF00FCD59D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9D96EA7B2B72A0AF00FCD59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchViewController.swift; sourceTree = "<group>"; };
 		9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D96EA802B72A0B100FCD59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D96EA822B72A0B100FCD59D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		9DDD3DB12B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
 		9DDD3DB22B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
 		9DDD3DB32B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchView.swift; sourceTree = "<group>"; };
+		9DDD3DC82B72D97D0017BD10 /* DMPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPill.swift; sourceTree = "<group>"; };
+		9DDD3DCA2B72DC560017BD10 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,15 +121,14 @@
 		9D96EA732B72A0AF00FCD59D /* DictionMaster */ = {
 			isa = PBXGroup;
 			children = (
+				9D96EA822B72A0B100FCD59D /* Info.plist */,
 				9DDD3DBD2B72C8980017BD10 /* Resources */,
 				9DDD3DBE2B72CAA30017BD10 /* APIClient */,
 				9DDD3DC32B72CAE90017BD10 /* Controllers */,
 				9DDD3DC22B72CAE30017BD10 /* Models */,
 				9DDD3DC02B72CAC80017BD10 /* Views */,
 				9DDD3DBF2B72CAB60017BD10 /* ViewModels */,
-				9D96EA782B72A0AF00FCD59D /* ViewController.swift */,
-				9D96EA7A2B72A0AF00FCD59D /* Main.storyboard */,
-				9D96EA822B72A0B100FCD59D /* Info.plist */,
+				9DDD3DC62B72D9370017BD10 /* Components */,
 			);
 			path = DictionMaster;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */,
 				9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */,
 				9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */,
+				9DDD3DCA2B72DC560017BD10 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +196,7 @@
 		9DDD3DC02B72CAC80017BD10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,8 +211,25 @@
 		9DDD3DC32B72CAE90017BD10 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9DDD3DC62B72D9370017BD10 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD3DC72B72D9690017BD10 /* Views */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9DDD3DC72B72D9690017BD10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD3DC82B72D97D0017BD10 /* DMPill.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +345,6 @@
 				9DDD3DB52B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf in Resources */,
 				9DDD3DB92B72BB2F0017BD10 /* SF-Pro-Rounded-Bold.otf in Resources */,
 				9DDD3DB82B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
-				9D96EA7C2B72A0AF00FCD59D /* Main.storyboard in Resources */,
 				9DDD3DBB2B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf in Resources */,
 				9DDD3DBA2B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf in Resources */,
 			);
@@ -350,9 +371,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D96EA792B72A0AF00FCD59D /* ViewController.swift in Sources */,
+				9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */,
+				9DDD3DCB2B72DC560017BD10 /* Extensions.swift in Sources */,
 				9D96EA752B72A0AF00FCD59D /* AppDelegate.swift in Sources */,
 				9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */,
+				9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */,
+				9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,14 +413,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9D96EA7A2B72A0AF00FCD59D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D96EA7B2B72A0AF00FCD59D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9D96EA7F2B72A0B100FCD59D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -541,7 +557,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -572,7 +587,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
