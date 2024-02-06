@@ -16,6 +16,15 @@
 		9D96EA8C2B72A0B100FCD59D /* DictionMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA8B2B72A0B100FCD59D /* DictionMasterTests.swift */; };
 		9D96EA962B72A0B100FCD59D /* DictionMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */; };
 		9D96EA982B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */; };
+		9DDD3DB42B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */; };
+		9DDD3DB52B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */; };
+		9DDD3DB62B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */; };
+		9DDD3DB72B72BB2F0017BD10 /* SF-Pro-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAE2B72BB2F0017BD10 /* SF-Pro-Rounded-Medium.otf */; };
+		9DDD3DB82B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAF2B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf */; };
+		9DDD3DB92B72BB2F0017BD10 /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB02B72BB2F0017BD10 /* SF-Pro-Rounded-Bold.otf */; };
+		9DDD3DBA2B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB12B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf */; };
+		9DDD3DBB2B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB22B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf */; };
+		9DDD3DBC2B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DB32B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,15 @@
 		9D96EA912B72A0B100FCD59D /* MatheusPinheiroBarbosaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatheusPinheiroBarbosaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITests.swift; sourceTree = "<group>"; };
 		9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
+		9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
+		9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
+		9DDD3DAE2B72BB2F0017BD10 /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		9DDD3DAF2B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		9DDD3DB02B72BB2F0017BD10 /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		9DDD3DB12B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		9DDD3DB22B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		9DDD3DB32B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +117,7 @@
 		9D96EA732B72A0AF00FCD59D /* DictionMaster */ = {
 			isa = PBXGroup;
 			children = (
+				9DDD3DAA2B72BAD70017BD10 /* fonts */,
 				9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */,
 				9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */,
 				9D96EA782B72A0AF00FCD59D /* ViewController.swift */,
@@ -125,6 +144,22 @@
 				9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */,
 			);
 			path = DictionMasterUITests;
+			sourceTree = "<group>";
+		};
+		9DDD3DAA2B72BAD70017BD10 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */,
+				9DDD3DB02B72BB2F0017BD10 /* SF-Pro-Rounded-Bold.otf */,
+				9DDD3DB22B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf */,
+				9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */,
+				9DDD3DAE2B72BB2F0017BD10 /* SF-Pro-Rounded-Medium.otf */,
+				9DDD3DB32B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf */,
+				9DDD3DB12B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf */,
+				9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */,
+				9DDD3DAF2B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +267,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D96EA812B72A0B100FCD59D /* LaunchScreen.storyboard in Resources */,
+				9DDD3DB72B72BB2F0017BD10 /* SF-Pro-Rounded-Medium.otf in Resources */,
+				9DDD3DB42B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf in Resources */,
+				9DDD3DB62B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf in Resources */,
 				9D96EA7E2B72A0B100FCD59D /* Assets.xcassets in Resources */,
+				9DDD3DBC2B72BB2F0017BD10 /* SF-Pro-Rounded-Regular.otf in Resources */,
+				9DDD3DB52B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf in Resources */,
+				9DDD3DB92B72BB2F0017BD10 /* SF-Pro-Rounded-Bold.otf in Resources */,
+				9DDD3DB82B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
 				9D96EA7C2B72A0AF00FCD59D /* Main.storyboard in Resources */,
+				9DDD3DBB2B72BB2F0017BD10 /* SF-Pro-Rounded-Heavy.otf in Resources */,
+				9DDD3DBA2B72BB2F0017BD10 /* SF-Pro-Rounded-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
