@@ -117,13 +117,14 @@
 		9D96EA732B72A0AF00FCD59D /* DictionMaster */ = {
 			isa = PBXGroup;
 			children = (
-				9DDD3DAA2B72BAD70017BD10 /* fonts */,
-				9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */,
-				9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */,
+				9DDD3DBD2B72C8980017BD10 /* Resources */,
+				9DDD3DBE2B72CAA30017BD10 /* APIClient */,
+				9DDD3DC32B72CAE90017BD10 /* Controllers */,
+				9DDD3DC22B72CAE30017BD10 /* Models */,
+				9DDD3DC02B72CAC80017BD10 /* Views */,
+				9DDD3DBF2B72CAB60017BD10 /* ViewModels */,
 				9D96EA782B72A0AF00FCD59D /* ViewController.swift */,
 				9D96EA7A2B72A0AF00FCD59D /* Main.storyboard */,
-				9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */,
-				9D96EA7F2B72A0B100FCD59D /* LaunchScreen.storyboard */,
 				9D96EA822B72A0B100FCD59D /* Info.plist */,
 			);
 			path = DictionMaster;
@@ -160,6 +161,53 @@
 				9DDD3DAF2B72BB2F0017BD10 /* SF-Pro-Rounded-Ultralight.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		9DDD3DBD2B72C8980017BD10 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD3DAA2B72BAD70017BD10 /* fonts */,
+				9D96EA7F2B72A0B100FCD59D /* LaunchScreen.storyboard */,
+				9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */,
+				9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */,
+				9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9DDD3DBE2B72CAA30017BD10 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		9DDD3DBF2B72CAB60017BD10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9DDD3DC02B72CAC80017BD10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DDD3DC22B72CAE30017BD10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DDD3DC32B72CAE90017BD10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
