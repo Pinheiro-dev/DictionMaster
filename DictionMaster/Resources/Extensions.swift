@@ -73,3 +73,23 @@ extension UILabel {
     attributedText = string
   }
 }
+
+//MARK: - Font
+
+extension UIFont {
+    public enum SFProRoundedType: String {
+       case black = "-Black"
+       case bold = "-Bold"
+       case heavy = "-Heavy"
+       case light = "-Light"
+       case medium = "-Medium"
+       case regular = "-Regular"
+       case semiBold = "-Semibold"
+       case thin = "-Thin"
+       case ultraLight = "-Ultralight"
+    }
+
+   static func SFProRounded(_ type: SFProRoundedType = .regular, size: CGFloat = UIFont.systemFontSize) -> UIFont {
+       return UIFont(name: "SFProRounded\(type.rawValue)", size: size)!
+   }
+}
