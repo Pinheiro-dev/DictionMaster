@@ -93,3 +93,19 @@ extension UIFont {
        return UIFont(name: "SFProRounded\(type.rawValue)", size: size)!
    }
 }
+
+//MARK: - String
+
+extension String {
+    func attributedString(subStr: String..., font: UIFont, color: UIColor) -> NSMutableAttributedString{
+        let attributedString = NSMutableAttributedString(string:self)
+        for text in subStr {
+            let range = (self as NSString).range(of: text)
+            let attributes = [NSAttributedString.Key.foregroundColor: color,
+                              NSAttributedString.Key.font: font]
+            attributedString.addAttributes(attributes, range: range)
+        }
+        
+        return attributedString
+      }
+}
