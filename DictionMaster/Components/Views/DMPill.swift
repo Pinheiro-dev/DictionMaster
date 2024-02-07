@@ -27,7 +27,9 @@ final class DMPill: UIView {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.text = "ENGLISH"
+        label.textColor = UIColor(hexString: "#052D39")
         label.font = UIFont(name: "SF-Pro-Rounded-Regular", size: 18)
+        label.addCharacterSpacing(kernValue: 1.8)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
