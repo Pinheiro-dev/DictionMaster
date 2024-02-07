@@ -9,13 +9,13 @@ import UIKit
 
 final class DMSearchView: UIView {
     
-    private lazy var pill: DMPill = {
+    private var pill: DMPill = {
         let pill = DMPill()
         pill.translatesAutoresizingMaskIntoConstraints = false
         return pill
     }()
 
-    lazy var textField: UITextField = {
+     let textField: UITextField = {
         let field = UITextField()
         field.textColor = .init(hexString: "#052D39")
         field.tintColor = .clear
