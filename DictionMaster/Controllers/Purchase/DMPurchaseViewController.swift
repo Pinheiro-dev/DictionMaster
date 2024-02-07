@@ -6,3 +6,40 @@
 //
 
 import Foundation
+import UIKit
+
+final class DMPurchaseViewController: UIViewController {
+    private let customView = DMPurchaseView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+
+        setupView()
+        addConstraints()
+        bind()
+    }
+    
+    @objc private func onClick(_ sender: UIButton) {
+        //excuteClick
+    }
+
+    private func setupView() {
+        view.addSubview(customView)
+    }
+
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            customView.topAnchor.constraint(equalTo: view.topAnchor),
+            customView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            customView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            customView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
+    
+    private func bind() {
+//        customView.searchButton.addTarget(self,
+//                                          action: #selector(onClick(_:)),
+//                                          for: .touchUpInside)
+    }
+}

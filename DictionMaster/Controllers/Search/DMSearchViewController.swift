@@ -23,6 +23,10 @@ final class DMSearchViewController: UIViewController {
         addConstraints()
         bind()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        customView.textField.becomeFirstResponder()
+    }
         
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -64,7 +68,6 @@ final class DMSearchViewController: UIViewController {
         customView.textField.addTarget(self,
                                        action: #selector(textFieldDidChange(_:)),
                                        for: .editingChanged)
-        customView.textField.becomeFirstResponder()
         customView.textField.delegate = self
         
         customView.searchButton.addTarget(self, 
@@ -73,9 +76,16 @@ final class DMSearchViewController: UIViewController {
     }
     
     private func search(word: String) {
+        print("didSearch")
         customView.spinner.startAnimating()
         customView.searchButton.enable(false)
-        print("didSearch")
+        customView.textField.resignFirstResponder()
+        customView.textField.text = ""
+        textFieldDidChange(customView.textField)
+    
+        let vc = DMPurchaseViewController()
+        vc.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
