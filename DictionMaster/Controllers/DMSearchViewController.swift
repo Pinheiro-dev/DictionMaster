@@ -73,6 +73,8 @@ final class DMSearchViewController: UIViewController {
     }
     
     private func search(word: String) {
+        customView.spinner.startAnimating()
+        customView.searchButton.enable(false)
         print("didSearch")
     }
     

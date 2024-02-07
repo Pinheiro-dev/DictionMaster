@@ -32,5 +32,15 @@ final class DMButton: UIButton {
         self.layer.masksToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    public func enable(_ value: Bool) {
+        if value {
+            self.isEnabled = true
+            self.alpha = 1
+        } else {
+            self.isEnabled = false
+            self.alpha = 0.5
+        }
+    }
 }
 
