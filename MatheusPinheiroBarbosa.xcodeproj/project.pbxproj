@@ -27,6 +27,7 @@
 		9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */; };
 		9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DC82B72D97D0017BD10 /* DMPill.swift */; };
 		9DDD3DCB2B72DC560017BD10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DCA2B72DC560017BD10 /* Extensions.swift */; };
+		9DDD3DCD2B732F050017BD10 /* DMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD3DCC2B732F050017BD10 /* DMButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchView.swift; sourceTree = "<group>"; };
 		9DDD3DC82B72D97D0017BD10 /* DMPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPill.swift; sourceTree = "<group>"; };
 		9DDD3DCA2B72DC560017BD10 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9DDD3DCC2B732F050017BD10 /* DMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDD3DC82B72D97D0017BD10 /* DMPill.swift */,
+				9DDD3DCC2B732F050017BD10 /* DMButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */,
 				9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */,
 				9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */,
+				9DDD3DCD2B732F050017BD10 /* DMButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
