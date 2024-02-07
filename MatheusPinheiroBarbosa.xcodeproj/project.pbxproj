@@ -16,6 +16,9 @@
 		9D96EA962B72A0B100FCD59D /* DictionMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */; };
 		9D96EA982B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */; };
 		9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B502B73C47600924998 /* DMSearchViewModel.swift */; };
+		9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */; };
+		9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B592B73E47E00924998 /* DMPurchaseView.swift */; };
+		9DD21B5D2B73E4E300924998 /* DMPurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B5C2B73E4E300924998 /* DMPurchaseViewModel.swift */; };
 		9DDD3DB42B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */; };
 		9DDD3DB52B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */; };
 		9DDD3DB62B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */; };
@@ -62,6 +65,9 @@
 		9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITests.swift; sourceTree = "<group>"; };
 		9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9DD21B502B73C47600924998 /* DMSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchViewModel.swift; sourceTree = "<group>"; };
+		9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseViewController.swift; sourceTree = "<group>"; };
+		9DD21B592B73E47E00924998 /* DMPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseView.swift; sourceTree = "<group>"; };
+		9DD21B5C2B73E4E300924998 /* DMPurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseViewModel.swift; sourceTree = "<group>"; };
 		9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
 		9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
 		9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
@@ -154,6 +160,54 @@
 			path = DictionMasterUITests;
 			sourceTree = "<group>";
 		};
+		9DD21B522B73E3D900924998 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9DD21B532B73E3EA00924998 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9DD21B502B73C47600924998 /* DMSearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9DD21B542B73E40400924998 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9DD21B552B73E43100924998 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		9DD21B582B73E45900924998 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				9DD21B592B73E47E00924998 /* DMPurchaseView.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		9DD21B5B2B73E4BC00924998 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				9DD21B5C2B73E4E300924998 /* DMPurchaseViewModel.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
 		9DDD3DAA2B72BAD70017BD10 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +247,8 @@
 		9DDD3DBF2B72CAB60017BD10 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9DD21B502B73C47600924998 /* DMSearchViewModel.swift */,
+				9DD21B5B2B73E4BC00924998 /* Purchase */,
+				9DD21B532B73E3EA00924998 /* Search */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -201,7 +256,8 @@
 		9DDD3DC02B72CAC80017BD10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9DDD3DC42B72D4080017BD10 /* DMSearchView.swift */,
+				9DD21B582B73E45900924998 /* Purchase */,
+				9DD21B522B73E3D900924998 /* Search */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,7 +272,8 @@
 		9DDD3DC32B72CAE90017BD10 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */,
+				9DD21B552B73E43100924998 /* Purchase */,
+				9DD21B542B73E40400924998 /* Search */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -377,11 +434,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DD21B5D2B73E4E300924998 /* DMPurchaseViewModel.swift in Sources */,
 				9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */,
 				9DDD3DCB2B72DC560017BD10 /* Extensions.swift in Sources */,
 				9D96EA752B72A0AF00FCD59D /* AppDelegate.swift in Sources */,
 				9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */,
+				9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */,
 				9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */,
+				9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */,
 				9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */,
 				9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */,
 				9DDD3DCD2B732F050017BD10 /* DMButton.swift in Sources */,

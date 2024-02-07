@@ -84,7 +84,13 @@ final class DMSearchViewController: UIViewController {
 
 extension DMSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let word = textField.text, !word.isEmpty else { return true}
+        guard let word = textField.text,
+              !word.isEmpty,
+              customView.searchButton.isEnabled else {
+            return true
+        }
+        
+        self.customView.searchButton.enable(false)
         self.search(word: word)
         return true;
     }
