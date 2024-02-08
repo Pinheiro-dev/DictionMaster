@@ -30,6 +30,10 @@ final class DMSearchResultViewController: UIViewController {
         addConstraints()
         bind()
     }
+    
+    @objc private func onClick(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     private func setupView() {
         view.addSubview(customView)
@@ -47,5 +51,7 @@ final class DMSearchResultViewController: UIViewController {
     private func bind() {
         customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
         customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
+        
+        customView.newSearchButton.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
     }
 }
