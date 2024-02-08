@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum DMServiceError: Error {
+    case failedToCreateRequest
+    case failedToGetData
+    case failedToGetResponse
+    case notFoundWith(error: ErrorNotFoundModel?)
+}
+
 /// Primary API service object to get Diction Master data.
 final class DMService {
     /// Shared singleton instace
@@ -15,11 +22,6 @@ final class DMService {
 //    private let cacheManager = DMAPICacheManager()
 
     private init() {}
-
-    enum DMServiceError: Error {
-        case failedToCreateRequest
-        case failedToGetData
-    }
 
     /// Send Diction Master API Call
     /// - Parameters:
@@ -44,10 +46,26 @@ final class DMService {
             return
         }
 
-        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 completion(.failure(error ?? DMServiceError.failedToGetData))
                 return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(DMServiceError.failedToGetResponse))
+                return
+            }
+            
+            if response.statusCode == 404 {
+                do {
+                    let result = try JSONDecoder().decode(ErrorNotFoundModel.self, from: data)
+                    completion(.failure(DMServiceError.notFoundWith(error: result)))
+                    return
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
             }
 
             //Decode response

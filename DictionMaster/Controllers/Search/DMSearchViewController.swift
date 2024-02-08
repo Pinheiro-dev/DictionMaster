@@ -9,6 +9,7 @@ import UIKit
 
 protocol DMSearchViewControllerDelegate: AnyObject {
     func didSearch(with dictionary: [DictionaryModel])
+    func didSearchFailed(errorTitle: String, errorMessage: String)
 }
 
 final class DMSearchViewController: UIViewController {
@@ -113,6 +114,11 @@ extension DMSearchViewController: UITextFieldDelegate {
 }
 
 extension DMSearchViewController: DMSearchViewControllerDelegate {
+    func didSearchFailed(errorTitle: String, errorMessage: String) {
+        self.finishSearch()
+        self.showAlertMessage(title: errorTitle, message: errorMessage)
+    }
+    
     func didSearch(with dictionary: [DictionaryModel]) {
         self.finishSearch()
         customView.textField.resignFirstResponder()

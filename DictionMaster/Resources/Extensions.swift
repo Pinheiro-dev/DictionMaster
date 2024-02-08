@@ -109,3 +109,17 @@ extension String {
         return attributedString
       }
 }
+
+//MARK: - ViewController
+
+extension UIViewController{
+    
+    public func showAlertMessage(title: String, message: String){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
+    }
+}
