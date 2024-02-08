@@ -70,9 +70,9 @@ final class DMSearchResultView: UIView {
         return view
     }()
     
-    private let titleBottomLabel: UILabel = {
+    let titleBottomLabel: UILabel = {
         let label = UILabel()
-        label.text = "That’s it for  “education”!"
+        label.text = ""
         label.font = .SFProRounded(.bold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

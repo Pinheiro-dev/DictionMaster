@@ -54,6 +54,7 @@ final class DMSearchResultViewController: UIViewController {
     private func bind() {
         customView.titleLabel.text = self.viewModel.title
         customView.pronunciationLabel.text = self.viewModel.phonetic
+        customView.titleBottomLabel.text = self.viewModel.titleBottom
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClickAudio(_:)))
         customView.audioView.addGestureRecognizer(gesture)
@@ -61,7 +62,5 @@ final class DMSearchResultViewController: UIViewController {
         
         customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
         customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
-        
-        
     }
 }

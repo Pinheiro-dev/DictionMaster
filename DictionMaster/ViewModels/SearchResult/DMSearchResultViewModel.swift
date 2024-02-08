@@ -13,11 +13,13 @@ protocol DMSearchResultViewModelDelegate: AnyObject {
     func getInstance() -> NSObject
     func playAudio()
     var title: String? { get }
+    var titleBottom: String? { get }
     var phonetic: String? { get }
 }
 
 final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     var title: String?
+    var titleBottom: String?
     var phonetic: String?
     
     var audio: String?
@@ -30,9 +32,15 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         self.result = result
         super.init()
         self.resultFormatted = self.formatResult(with: result)
-        self.title = resultFormatted?.title
+        self.setUpDelegateVariables()    }
+    
+    private func setUpDelegateVariables() {
+        self.title = resultFormatted?.title.capitalized
         self.phonetic = resultFormatted?.phonetic
         self.audio = resultFormatted?.audio
+        
+        guard let title = title else { return }
+        self.titleBottom = "That’s it for “\(title.lowercased())”!"
     }
     
     private func getFomattedDefinition(partOfSpeech: String, definition: String, index: Int) -> NSMutableAttributedString {
@@ -55,8 +63,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private func formatResult(with result: [DictionaryModel]) -> WordDefinitionModel {
         let data = result[0]
         let title = data.word
-        var phonetic: String = data.phonetic ?? ""
-        var audio: String? = data.phonetics?.first?.audio
+        let phonetic: String = data.phonetic ?? ""
+        let audio: String? = data.phonetics?.first?.audio
         
         let item: [MeaningDefinition] = data.meanings.enumerated().compactMap({ index, element in
             let partOfSpeech = element.partOfSpeech;
