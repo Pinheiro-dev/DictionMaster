@@ -10,12 +10,45 @@ import UIKit
 
 final class DMSearchResultView: UIView {
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Education"
+        label.textColor = .init(hexString: "#052D39")
+        label.font = .SFProRounded(.bold, size: 45)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let pronunciationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "/ˌedʒuˈkeɪʃn/"
+        label.textColor = .init(hexString: "#052D39").withAlphaComponent(0.40)
+        label.font = .SFProRounded(.bold, size: 22)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let audioView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .init(hexString: "#5BD6FD")
+        view.roundCorners(radius: 23)
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let speakerImageView: UIImageView = {
+        let imageView = UIImageView()
+        let image = UIImage(named: "audioSpeaker")
+        imageView.image = image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     let tableView: UITableView = {
         let table = UITableView()
         table.register(DMSearchResultTableViewCell.self,
                        forCellReuseIdentifier: DMSearchResultTableViewCell.cellIdentifier)
-        table.register(DMSearchResultHeaderView.self,
-                       forHeaderFooterViewReuseIdentifier: DMSearchResultHeaderView.identifier)
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
         table.backgroundColor = .white
@@ -74,9 +107,14 @@ final class DMSearchResultView: UIView {
     }
 
     private func setupViews() {
-        addSubviews(tableView,
+        addSubviews(titleLabel,
+                    audioView,
+                    pronunciationLabel,
+                    tableView,
                     separatorView,
                     bottomView)
+        audioView.addSubview(speakerImageView)
+        
         bottomView.addSubviews(titleBottomLabel,
                                descriptioBottomLabel,
                                newSearchButton)
@@ -84,6 +122,37 @@ final class DMSearchResultView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
+            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
+            
+            audioView.heightAnchor.constraint(equalToConstant: 46),
+            audioView.widthAnchor.constraint(equalToConstant: 46),
+            audioView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 13),
+            audioView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
+            
+            speakerImageView.heightAnchor.constraint(equalToConstant: 20.4),
+            speakerImageView.widthAnchor.constraint(equalToConstant: 22.95),
+            speakerImageView.topAnchor.constraint(equalTo: audioView.topAnchor, constant: 12.8),
+            speakerImageView.leftAnchor.constraint(equalTo: audioView.leftAnchor, constant: 11.53),
+            speakerImageView.rightAnchor.constraint(equalTo: audioView.rightAnchor, constant: -11.53),
+            speakerImageView.bottomAnchor.constraint(equalTo: audioView.bottomAnchor, constant: -12.8),
+            
+            pronunciationLabel.leftAnchor.constraint(equalTo: audioView.rightAnchor, constant: 10),
+            pronunciationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
+            pronunciationLabel.centerYAnchor.constraint(equalTo: audioView.centerYAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: audioView.bottomAnchor, constant: 25),
+            tableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
+            tableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
+            tableView.bottomAnchor.constraint(equalTo: separatorView.topAnchor),
+            
+            separatorView.heightAnchor.constraint(equalToConstant: 1),
+            separatorView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            separatorView.leftAnchor.constraint(equalTo: leftAnchor),
+            separatorView.rightAnchor.constraint(equalTo: rightAnchor),
+            separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
+            
             bottomView.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
             bottomView.leftAnchor.constraint(equalTo: leftAnchor),
             bottomView.rightAnchor.constraint(equalTo: rightAnchor),
@@ -102,17 +171,6 @@ final class DMSearchResultView: UIView {
             newSearchButton.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 17),
             newSearchButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -16),
             newSearchButton.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -31),
-            
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            separatorView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
-            separatorView.leftAnchor.constraint(equalTo: leftAnchor),
-            separatorView.rightAnchor.constraint(equalTo: rightAnchor),
-            separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
-            tableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
-            tableView.bottomAnchor.constraint(equalTo: separatorView.topAnchor),
         ])
     }
 }

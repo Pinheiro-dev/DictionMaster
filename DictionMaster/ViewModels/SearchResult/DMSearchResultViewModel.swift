@@ -46,18 +46,4 @@ extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let header = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: DMSearchResultHeaderView.identifier
-        ) as? DMSearchResultHeaderView else {
-            return UIView()
-        }
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 138
-    }
-    
-    
 }
