@@ -10,7 +10,16 @@ import UIKit
 
 final class DMSearchResultViewController: UIViewController {
     private let customView = DMSearchResultView()
-    private let viewModel: DMSearchResultViewModelDelegate = DMSearchResultViewModel()
+    private let viewModel: DMSearchResultViewModelDelegate
+    
+    init(dictionary: [DictionaryModel]) {
+        self.viewModel = DMSearchResultViewModel(result: dictionary)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,5 +45,7 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     private func bind() {
+        customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
+        customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
     }
 }

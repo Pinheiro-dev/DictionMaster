@@ -121,7 +121,7 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
     func didSearch(with dictionary: [DictionaryModel]) {
         self.finishSearch()
         customView.textField.resignFirstResponder()
-        let vc = DMSearchResultViewController()
+        let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)
 //        let vc = DMPurchaseViewController()

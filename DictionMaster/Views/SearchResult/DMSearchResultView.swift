@@ -14,6 +14,11 @@ final class DMSearchResultView: UIView {
         let table = UITableView()
         table.register(DMSearchResultTableViewCell.self,
                        forCellReuseIdentifier: DMSearchResultTableViewCell.cellIdentifier)
+        table.register(DMSearchResultHeaderView.self,
+                       forHeaderFooterViewReuseIdentifier: DMSearchResultHeaderView.identifier)
+        table.separatorStyle = .none
+        table.showsVerticalScrollIndicator = false
+        table.backgroundColor = .white
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -60,7 +65,6 @@ final class DMSearchResultView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
-        layoutIfNeeded()
         setupViews()
         addConstraints()
     }
@@ -106,8 +110,8 @@ final class DMSearchResultView: UIView {
             separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
             
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: rightAnchor),
+            tableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
+            tableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
             tableView.bottomAnchor.constraint(equalTo: separatorView.topAnchor),
         ])
     }
