@@ -35,7 +35,7 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     @objc private func onClickAudio(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.viewModel.playAudio()
     }
 
     private func setupView() {

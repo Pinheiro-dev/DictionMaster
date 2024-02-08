@@ -7,22 +7,24 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 protocol DMSearchResultViewModelDelegate: AnyObject {
     func getInstance() -> NSObject
+    func playAudio()
     var title: String? { get }
     var phonetic: String? { get }
-    var audio: String? { get }
 }
 
 final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     var title: String?
     var phonetic: String?
+    
     var audio: String?
-    
+    var player: AVAudioPlayer?
     private var result: [DictionaryModel]
-    
     private var resultFormatted: WordDefinitionModel?
+    private let api: DMAudioLoaderManager = DMAudioLoaderManager.shared
     
     init(result: [DictionaryModel]) {
         self.result = result
@@ -79,13 +81,44 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         return model
     }
     
+    private func playSound(url: URL) {
+        print("play audio")
+       
+        do {
+            self.player = try AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
+            player?.volume = 1.0
+            player?.play()
+        } catch let error as NSError {
+            //self.player = nil
+//            print(error.localizedDescription)
+        } catch {
+//            print("AVAudioPlayer init failed")
+        }
+    }
+    
+    
     //MARK: - Actions
     
     func getInstance() -> NSObject {
         return self
     }
+    
+    func playAudio() {
+        guard let audio = audio, let url = URL(string: audio) else { return }
+        self.api.downloadAudio(url) { result in
+            switch result {
+            case .success(let urlAudio):
+                self.playSound(url: urlAudio)
+            case .failure(let error):
+                print("Audio failure", String(reflecting: error))
+            }
+        }
+    }
+    
 }
 
+    //MARK: - TableViewDelegate e TableViewDataSource
 
 extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,5 +143,4 @@ extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
-    
 }
