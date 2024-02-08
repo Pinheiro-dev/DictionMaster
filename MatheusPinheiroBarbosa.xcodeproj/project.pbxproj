@@ -16,6 +16,7 @@
 		9D96EA962B72A0B100FCD59D /* DictionMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */; };
 		9D96EA982B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */; };
 		9DAC44F62B750E1F003C5A02 /* ErrorNotFoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44F52B750E1F003C5A02 /* ErrorNotFoundModel.swift */; };
+		9DAC44F82B751905003C5A02 /* WordDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44F72B751905003C5A02 /* WordDefinitionModel.swift */; };
 		9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B502B73C47600924998 /* DMSearchViewModel.swift */; };
 		9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */; };
 		9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B592B73E47E00924998 /* DMPurchaseView.swift */; };
@@ -71,6 +72,7 @@
 		9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITests.swift; sourceTree = "<group>"; };
 		9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9DAC44F52B750E1F003C5A02 /* ErrorNotFoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotFoundModel.swift; sourceTree = "<group>"; };
+		9DAC44F72B751905003C5A02 /* WordDefinitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDefinitionModel.swift; sourceTree = "<group>"; };
 		9DD21B502B73C47600924998 /* DMSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchViewModel.swift; sourceTree = "<group>"; };
 		9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseViewController.swift; sourceTree = "<group>"; };
 		9DD21B592B73E47E00924998 /* DMPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseView.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			children = (
 				9DD21B642B743B2D00924998 /* DictionaryModel.swift */,
 				9DAC44F52B750E1F003C5A02 /* ErrorNotFoundModel.swift */,
+				9DAC44F72B751905003C5A02 /* WordDefinitionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */,
 				9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */,
 				9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */,
+				9DAC44F82B751905003C5A02 /* WordDefinitionModel.swift in Sources */,
 				9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */,
 				9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */,
 				9DDD3DCD2B732F050017BD10 /* DMButton.swift in Sources */,
