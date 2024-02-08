@@ -7,9 +7,13 @@
 
 import UIKit
 
-final class DMSearchViewController: UIViewController {
+protocol DMSearchViewControllerDelegate: AnyObject {
+    func didSearch(with dictionary: [DictionaryModel])
+}
 
+final class DMSearchViewController: UIViewController {
     private let customView = DMSearchView()
+    private let viewModel: DMSearchViewModelDelegate = DMSearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +22,8 @@ final class DMSearchViewController: UIViewController {
                                                selector: #selector(keyboardWillShow(notification:)),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
-
+        
+        viewModel.setDelegate(self)
         setupView()
         addConstraints()
         bind()
@@ -75,17 +80,18 @@ final class DMSearchViewController: UIViewController {
                                           for: .touchUpInside)
     }
     
+    private func finishSearch() {
+        customView.spinner.stopAnimating()
+        customView.searchButton.enable(true)
+        customView.textField.text = ""
+        textFieldDidChange(customView.textField)
+    }
+    
     private func search(word: String) {
         print("didSearch")
         customView.spinner.startAnimating()
         customView.searchButton.enable(false)
-        customView.textField.resignFirstResponder()
-        customView.textField.text = ""
-        textFieldDidChange(customView.textField)
-    
-        let vc = DMPurchaseViewController()
-        vc.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.viewModel.fetchSearch(with: word)
     }
     
 }
@@ -103,5 +109,15 @@ extension DMSearchViewController: UITextFieldDelegate {
         self.customView.searchButton.enable(false)
         self.search(word: word)
         return true;
+    }
+}
+
+extension DMSearchViewController: DMSearchViewControllerDelegate {
+    func didSearch(with dictionary: [DictionaryModel]) {
+        self.finishSearch()
+        customView.textField.resignFirstResponder()
+        let vc = DMPurchaseViewController()
+        vc.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
