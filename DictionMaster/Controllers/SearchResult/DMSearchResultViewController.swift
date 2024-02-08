@@ -25,13 +25,16 @@ final class DMSearchResultViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-//        viewModel.setDelegate(self)
         setupView()
         addConstraints()
         bind()
     }
     
-    @objc private func onClick(_ sender: UIButton) {
+    @objc private func onClickSearchButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func onClickAudio(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -49,9 +52,16 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     private func bind() {
+        customView.titleLabel.text = self.viewModel.title
+        customView.pronunciationLabel.text = self.viewModel.phonetic
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClickAudio(_:)))
+        customView.audioView.addGestureRecognizer(gesture)
+        customView.newSearchButton.addTarget(self, action: #selector(onClickSearchButton(_:)), for: .touchUpInside)
+        
         customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
         customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
         
-        customView.newSearchButton.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
+        
     }
 }

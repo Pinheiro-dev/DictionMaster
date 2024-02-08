@@ -13,7 +13,6 @@ final class DMSearchResultTableViewCell: UITableViewCell {
     
     let definitionLabel: UILabel = {
         let label = UILabel()
-        label.text = "1) [uncountable, countable] a process of teaching, training and learning, especially in schools, colleges or universities, to improve knowledge and develop skills"
         label.textColor = UIColor(hexString: "#052D39")
         label.numberOfLines = 0
         label.font = .SFProRounded(.bold, size: 16)
@@ -26,17 +25,6 @@ final class DMSearchResultTableViewCell: UITableViewCell {
         label.textColor = UIColor(hexString: "#052D39")
         label.numberOfLines = 0
         label.font = .SFProRounded(size: 16)
-        label.text = """
-                     • primary/elementary education
-                     • post-secondary education
-                     • a college/university education
-                     • She completed her formal education in 2019.
-                     • Students from lower income families are less
-                     • likely to continue their education.
-                     • to further/pursue your education
-                     • to get/receive an education
-                     • The school provides an excellent all-round
-                    """
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,7 +34,7 @@ final class DMSearchResultTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        translatesAutoresizingMaskIntoConstraints = false
+        selectionStyle = .none
         setUpViews()
         addConstrints()
     }
@@ -74,7 +62,7 @@ final class DMSearchResultTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.definitionLabel.text = nil
-        self.examplesLabel.text = nil
+        self.definitionLabel.attributedText = nil
+        self.examplesLabel.attributedText = nil
     }
 }

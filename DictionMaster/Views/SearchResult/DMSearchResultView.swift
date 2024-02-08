@@ -10,25 +10,25 @@ import UIKit
 
 final class DMSearchResultView: UIView {
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Education"
+        label.text = "-"
         label.textColor = .init(hexString: "#052D39")
         label.font = .SFProRounded(.bold, size: 45)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    private let pronunciationLabel: UILabel = {
+    let pronunciationLabel: UILabel = {
         let label = UILabel()
-        label.text = "/ˌedʒuˈkeɪʃn/"
+        label.text = "-"
         label.textColor = .init(hexString: "#052D39").withAlphaComponent(0.40)
         label.font = .SFProRounded(.bold, size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    private let audioView: UIView = {
+    let audioView: UIView = {
         let view = UIView()
         view.backgroundColor = .init(hexString: "#5BD6FD")
         view.roundCorners(radius: 23)
@@ -72,7 +72,7 @@ final class DMSearchResultView: UIView {
     
     private let titleBottomLabel: UILabel = {
         let label = UILabel()
-        label.text = #"That’s it for "education"!"#
+        label.text = "That’s it for  “education”!"
         label.font = .SFProRounded(.bold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -133,10 +133,8 @@ final class DMSearchResultView: UIView {
             
             speakerImageView.heightAnchor.constraint(equalToConstant: 20.4),
             speakerImageView.widthAnchor.constraint(equalToConstant: 22.95),
-            speakerImageView.topAnchor.constraint(equalTo: audioView.topAnchor, constant: 12.8),
-            speakerImageView.leftAnchor.constraint(equalTo: audioView.leftAnchor, constant: 11.53),
-            speakerImageView.rightAnchor.constraint(equalTo: audioView.rightAnchor, constant: -11.53),
-            speakerImageView.bottomAnchor.constraint(equalTo: audioView.bottomAnchor, constant: -12.8),
+            speakerImageView.centerXAnchor.constraint(equalTo: audioView.centerXAnchor),
+            speakerImageView.centerYAnchor.constraint(equalTo: audioView.centerYAnchor),
             
             pronunciationLabel.leftAnchor.constraint(equalTo: audioView.rightAnchor, constant: 10),
             pronunciationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
