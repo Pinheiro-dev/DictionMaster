@@ -89,7 +89,6 @@ final class DMSearchViewController: UIViewController {
     }
     
     private func search(word: String) {
-        print("didSearch")
         customView.spinner.startAnimating()
         customView.searchButton.enable(false)
         self.viewModel.fetchSearch(with: word)
@@ -122,8 +121,11 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
     func didSearch(with dictionary: [DictionaryModel]) {
         self.finishSearch()
         customView.textField.resignFirstResponder()
-        let vc = DMPurchaseViewController()
+        let vc = DMSearchResultViewController()
         vc.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = DMPurchaseViewController()
+//        vc.navigationItem.hidesBackButton = true
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
