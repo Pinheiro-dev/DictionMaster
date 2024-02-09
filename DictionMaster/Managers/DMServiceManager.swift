@@ -10,6 +10,8 @@ import Foundation
 protocol DMServiceManagerProtocol: AnyObject {
     func getDictionayWord(param: String,
                           completion: @escaping (Result<[DictionaryModel], Error>) -> Void)
+    func downloadAudio(with url: URL,
+                       completion: @escaping (Result<URL, Error>) -> Void)
 }
 
 final class DMServiceManager: DMServiceManagerProtocol {
@@ -21,6 +23,18 @@ final class DMServiceManager: DMServiceManagerProtocol {
             switch result {
             case .success(let responseModel):
                 completion(.success(responseModel))
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        }
+    }
+    
+    func downloadAudio(with url: URL,
+                       completion: @escaping (Result<URL, Error>) -> Void) {
+        DMService.shared.downloadAudio(url) { (result: Result<URL, Error>) in
+            switch result {
+            case .success(let url):
+                completion(.success(url))
             case .failure(let failure):
                 completion(.failure(failure))
             }

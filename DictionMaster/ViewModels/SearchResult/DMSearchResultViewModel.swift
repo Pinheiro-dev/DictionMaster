@@ -27,7 +27,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private var player: AVAudioPlayer?
     private var result: [DictionaryModel]
     private var resultFormatted: WordDefinitionModel?
-    private let api: DMAudioLoaderManager = DMAudioLoaderManager.shared
+    private let api: DMServiceManagerProtocol = DMServiceManager()
     private weak var delegate: DMSearchResultViewControllerDelegate?
     
     //MARK: - init
@@ -129,7 +129,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
                                           errorMessage: "Sorry pal, you can try again at later time.")
             return
         }
-        self.api.downloadAudio(url) { result in
+        self.api.downloadAudio(with: url) { result in
             switch result {
             case .success(let urlAudio):
                 self.playSound(url: urlAudio)

@@ -87,6 +87,22 @@ final class DMService {
         task.resume()
 
     }
+    
+    /// Get audio content with URL
+    /// - Parameters:
+    ///   - url: Source url
+    ///   - completion: Callback
+    public func downloadAudio(_ url: URL, completion: @escaping (Result<URL, Error>) -> Void) {
+        let task = URLSession.shared.downloadTask(with: url) { URL, _, error in
+            guard let URL = URL, error == nil else {
+                completion(.failure(error ?? URLError(.badServerResponse)))
+                return
+            }
+
+            completion(.success(URL))
+        }
+        task.resume()
+    }
 
     // MARK: - Private
     private func request(from rmRequest: DMRequest) -> URLRequest? {
