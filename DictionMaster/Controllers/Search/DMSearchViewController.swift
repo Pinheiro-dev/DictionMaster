@@ -131,7 +131,6 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
         let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)
-
     }
     
     func goToPurchase() {

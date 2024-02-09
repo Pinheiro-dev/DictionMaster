@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents unique API endpoint
-@frozen enum DMEndpoint: String {
+enum DMEndpoint: String {
     /// Enpoint to get word info
     case entries
 }

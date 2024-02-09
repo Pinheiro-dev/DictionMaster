@@ -108,7 +108,6 @@ final class DMPurchaseView: UIView {
             personImageView.rightAnchor.constraint(equalTo: rightAnchor),
             personImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 39),
             
-            
             logoImageView.heightAnchor.constraint(equalToConstant: logoImgHeight),
             logoImageView.widthAnchor.constraint(equalToConstant: logoImgHeight),
             logoImageView.topAnchor.constraint(equalTo: personImageView.bottomAnchor,
@@ -123,7 +122,6 @@ final class DMPurchaseView: UIView {
             infoLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 26),
             infoLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
             infoLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
-            
             
             priceLabel.heightAnchor.constraint(equalToConstant: 42),
             priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),

@@ -17,7 +17,7 @@ final class DMRequest {
 
     /// Desired endpoint
     let endpoint: DMEndpoint
-    /// Parameter for API, if any
+    /// Parameter for API
     public var param: String
 
     /// Constructed url fot the api request in string format

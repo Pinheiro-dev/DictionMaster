@@ -25,7 +25,7 @@ final class DMSearchView: UIView {
 
      let textField: UITextField = {
          let field = UITextField()
-         field.textColor = Color().primaryColor//.init(hexString: "#052D39")
+         field.textColor = Color().primaryColor
          field.tintColor = .clear
          field.font = .SFProRounded(.bold, size: 32)
          field.textAlignment = .center
