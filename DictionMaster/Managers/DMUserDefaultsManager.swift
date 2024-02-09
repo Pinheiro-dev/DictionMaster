@@ -47,27 +47,31 @@ final class DMUserDefaultsManager {
 
     private func setDate(){
         userDefaults.set(currentDate, forKey: "DATE")
+        userDefaults.synchronize()
     }
     
     private func setCountSearch(){
         userDefaults.set(0, forKey: "COUNT_SEARCH")
+        userDefaults.synchronize()
     }
     
     private func setWord(_ word: String){
-        userDefaults.set(word, forKey: "\(word.uppercased())")
+        userDefaults.set(word, forKey: word.uppercased())
+        userDefaults.synchronize()
     }
     
     private func addCountSearch() {
         let count = userDefaults.integer(forKey: "COUNT_SEARCH")
         userDefaults.set(count+1, forKey: "COUNT_SEARCH")
+        userDefaults.synchronize()
     }
     
     private func resetUserDefaults() {
         let domain = Bundle.main.bundleIdentifier!
         userDefaults.removePersistentDomain(forName: domain)
+        userDefaults.synchronize()
         self.setDate()
         self.setCountSearch()
-        userDefaults.synchronize()
     }
     
 }
