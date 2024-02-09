@@ -25,7 +25,6 @@
 		9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B502B73C47600924998 /* DMSearchViewModel.swift */; };
 		9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */; };
 		9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B592B73E47E00924998 /* DMPurchaseView.swift */; };
-		9DD21B5D2B73E4E300924998 /* DMPurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B5C2B73E4E300924998 /* DMPurchaseViewModel.swift */; };
 		9DD21B652B743B2D00924998 /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B642B743B2D00924998 /* DictionaryModel.swift */; };
 		9DD21B672B74493E00924998 /* DMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B662B74493E00924998 /* DMRequest.swift */; };
 		9DD21B692B74498C00924998 /* DMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B682B74498C00924998 /* DMEndpoint.swift */; };
@@ -87,7 +86,6 @@
 		9DD21B502B73C47600924998 /* DMSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchViewModel.swift; sourceTree = "<group>"; };
 		9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseViewController.swift; sourceTree = "<group>"; };
 		9DD21B592B73E47E00924998 /* DMPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseView.swift; sourceTree = "<group>"; };
-		9DD21B5C2B73E4E300924998 /* DMPurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseViewModel.swift; sourceTree = "<group>"; };
 		9DD21B642B743B2D00924998 /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
 		9DD21B662B74493E00924998 /* DMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMRequest.swift; sourceTree = "<group>"; };
 		9DD21B682B74498C00924998 /* DMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMEndpoint.swift; sourceTree = "<group>"; };
@@ -260,14 +258,6 @@
 			path = Purchase;
 			sourceTree = "<group>";
 		};
-		9DD21B5B2B73E4BC00924998 /* Purchase */ = {
-			isa = PBXGroup;
-			children = (
-				9DD21B5C2B73E4E300924998 /* DMPurchaseViewModel.swift */,
-			);
-			path = Purchase;
-			sourceTree = "<group>";
-		};
 		9DD21B6E2B747BD200924998 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +312,6 @@
 			children = (
 				9DD21B532B73E3EA00924998 /* Search */,
 				9DAC44FD2B751BE2003C5A02 /* SearchResult */,
-				9DD21B5B2B73E4BC00924998 /* Purchase */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -513,7 +502,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DD21B5D2B73E4E300924998 /* DMPurchaseViewModel.swift in Sources */,
 				9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */,
 				9DDC176A2B75C7F00006A33D /* DMUserDefaultsManager.swift in Sources */,
 				9DD21B672B74493E00924998 /* DMRequest.swift in Sources */,
