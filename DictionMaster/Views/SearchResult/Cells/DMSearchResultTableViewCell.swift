@@ -2,7 +2,7 @@
 //  DMSearchResultTableViewCell.swift
 //  MatheusPinheiroBarbosa
 //
-//  Created by Fernanda  on 08/02/24.
+//  Created by Matheus on 08/02/24.
 //
 
 import Foundation

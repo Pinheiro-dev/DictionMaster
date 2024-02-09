@@ -14,10 +14,8 @@ protocol DMSearchViewModelDelegate: AnyObject {
 }
 
 final class DMSearchViewModel: DMSearchViewModelDelegate {
-    public weak var delegate: DMSearchViewControllerDelegate?
-    
+    private weak var delegate: DMSearchViewControllerDelegate?
     private let api: DMServiceManagerProtocol = DMServiceManager()
-    var onError: ((String) -> Void)?
     
     //MARK: - Actions
     

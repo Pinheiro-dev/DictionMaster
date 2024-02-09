@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents unique API endpoint
-@frozen enum DMEndpoint: String, CaseIterable, Hashable {
+@frozen enum DMEndpoint: String {
     /// Enpoint to get word info
     case entries
     /// Enpoint to get pronunciation mp3

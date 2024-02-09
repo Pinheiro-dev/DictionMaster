@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol DMSearchResultViewControllerDelegate: AnyObject {
+    func didAudioFailed(errorTitle: String, errorMessage: String)
+}
+
 final class DMSearchResultViewController: UIViewController {
     private let customView = DMSearchResultView()
     private let viewModel: DMSearchResultViewModelDelegate
@@ -25,6 +29,7 @@ final class DMSearchResultViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        viewModel.setDelegate(self)
         setupView()
         addConstraints()
         bind()
@@ -62,5 +67,11 @@ final class DMSearchResultViewController: UIViewController {
         
         customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
         customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
+    }
+}
+
+extension DMSearchResultViewController: DMSearchResultViewControllerDelegate {
+    func didAudioFailed(errorTitle: String, errorMessage: String) {
+        self.showAlertMessage(title: errorTitle, message: errorMessage)
     }
 }

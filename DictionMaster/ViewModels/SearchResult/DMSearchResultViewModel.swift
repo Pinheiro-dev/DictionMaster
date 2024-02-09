@@ -11,6 +11,7 @@ import AVFoundation
 
 protocol DMSearchResultViewModelDelegate: AnyObject {
     func getInstance() -> NSObject
+    func setDelegate(_ delegate: DMSearchResultViewControllerDelegate?)
     func playAudio()
     var title: String? { get }
     var titleBottom: String? { get }
@@ -27,12 +28,16 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private var result: [DictionaryModel]
     private var resultFormatted: WordDefinitionModel?
     private let api: DMAudioLoaderManager = DMAudioLoaderManager.shared
+    private weak var delegate: DMSearchResultViewControllerDelegate?
+    
+    //MARK: - init
     
     init(result: [DictionaryModel]) {
         self.result = result
         super.init()
         self.resultFormatted = self.formatResult(with: result)
-        self.setUpDelegateVariables()    }
+        self.setUpDelegateVariables()
+    }
     
     private func setUpDelegateVariables() {
         self.title = resultFormatted?.title.capitalized
@@ -97,11 +102,9 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             player?.prepareToPlay()
             player?.volume = 1.0
             player?.play()
-        } catch let error as NSError {
-            //self.player = nil
-//            print(error.localizedDescription)
         } catch {
-//            print("AVAudioPlayer init failed")
+            self.delegate?.didAudioFailed(errorTitle: "Failed to play pronunciation",
+                                          errorMessage: "Sorry pal, you can try again at later time.")
         }
     }
     
@@ -112,14 +115,19 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         return self
     }
     
+    func setDelegate(_ delegate: DMSearchResultViewControllerDelegate?) {
+        self.delegate = delegate
+    }
+    
     func playAudio() {
         guard let audio = audio, let url = URL(string: audio) else { return }
         self.api.downloadAudio(url) { result in
             switch result {
             case .success(let urlAudio):
                 self.playSound(url: urlAudio)
-            case .failure(let error):
-                print("Audio failure", String(reflecting: error))
+            case .failure(_):
+                self.delegate?.didAudioFailed(errorTitle: "Failed to play pronunciation",
+                                              errorMessage: "Sorry pal, you can try again at later time.")
             }
         }
     }
