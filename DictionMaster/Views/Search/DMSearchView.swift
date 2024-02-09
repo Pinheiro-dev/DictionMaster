@@ -11,6 +11,7 @@ final class DMSearchView: UIView {
     
     let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .black
         spinner.hidesWhenStopped = true
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
