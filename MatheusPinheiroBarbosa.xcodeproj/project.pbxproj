@@ -32,6 +32,7 @@
 		9DD21B692B74498C00924998 /* DMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B682B74498C00924998 /* DMEndpoint.swift */; };
 		9DD21B6B2B74508600924998 /* DMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B6A2B74508600924998 /* DMService.swift */; };
 		9DD21B6D2B74521A00924998 /* DMServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B6C2B74521A00924998 /* DMServiceManager.swift */; };
+		9DDC176A2B75C7F00006A33D /* DMUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC17692B75C7F00006A33D /* DMUserDefaultsManager.swift */; };
 		9DDD3DB42B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */; };
 		9DDD3DB52B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */; };
 		9DDD3DB62B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */; };
@@ -94,6 +95,7 @@
 		9DD21B682B74498C00924998 /* DMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMEndpoint.swift; sourceTree = "<group>"; };
 		9DD21B6A2B74508600924998 /* DMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMService.swift; sourceTree = "<group>"; };
 		9DD21B6C2B74521A00924998 /* DMServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMServiceManager.swift; sourceTree = "<group>"; };
+		9DDC17692B75C7F00006A33D /* DMUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUserDefaultsManager.swift; sourceTree = "<group>"; };
 		9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
 		9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
 		9DDD3DAD2B72BB2F0017BD10 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				9DD21B6C2B74521A00924998 /* DMServiceManager.swift */,
 				9DAC45072B759032003C5A02 /* DMAudioLoaderManager.swift */,
 				9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */,
+				9DDC17692B75C7F00006A33D /* DMUserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			files = (
 				9DD21B5D2B73E4E300924998 /* DMPurchaseViewModel.swift in Sources */,
 				9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */,
+				9DDC176A2B75C7F00006A33D /* DMUserDefaultsManager.swift in Sources */,
 				9DD21B672B74493E00924998 /* DMRequest.swift in Sources */,
 				9DDD3DCB2B72DC560017BD10 /* Extensions.swift in Sources */,
 				9D96EA752B72A0AF00FCD59D /* AppDelegate.swift in Sources */,
