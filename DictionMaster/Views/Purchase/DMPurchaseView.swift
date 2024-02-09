@@ -53,7 +53,7 @@ final class DMPurchaseView: UIView {
         return label
     }()
     
-    private lazy var priceLabel: UILabel = {
+    private let priceLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center

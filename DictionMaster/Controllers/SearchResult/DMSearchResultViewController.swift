@@ -70,6 +70,8 @@ final class DMSearchResultViewController: UIViewController {
     }
 }
 
+//MARK: - SearchResultViewController Delegate
+
 extension DMSearchResultViewController: DMSearchResultViewControllerDelegate {
     func didAudioFailed(errorTitle: String, errorMessage: String) {
         self.showAlertMessage(title: errorTitle, message: errorMessage)

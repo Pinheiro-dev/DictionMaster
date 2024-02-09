@@ -18,8 +18,6 @@ final class DMSearchViewModel: DMSearchViewModelDelegate {
     private let api: DMServiceManagerProtocol = DMServiceManager()
     private let userDefaults = DMUserDefaultsManager.shared
     
-    //MARK: - Actions
-    
     private func showError(with error: Error) {
         guard let error = error as? DMServiceError else {
             self.delegate?.didSearchFailed(errorTitle: Localized().error.genericTitleSearch,
@@ -37,8 +35,9 @@ final class DMSearchViewModel: DMSearchViewModelDelegate {
             self.delegate?.didSearchFailed(errorTitle:  Localized().error.genericTitleSearch,
                                            errorMessage: Localized().error.genericMessageSearch)
         }
-        
     }
+    
+    //MARK: - Actions
     
     func fetchSearch(with word: String) {
         api.getDictionayWord(param: word) { [weak self] result in

@@ -51,10 +51,10 @@ final class DMSearchView: UIView {
         return button
     }()
     
+    var bottomButtonConstraint = NSLayoutConstraint()
+    
     // MARK: - Init
     
-    var bottomButtonConstraint = NSLayoutConstraint()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white

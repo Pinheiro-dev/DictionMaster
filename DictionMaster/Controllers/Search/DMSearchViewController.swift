@@ -119,6 +119,8 @@ extension DMSearchViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: - SearchViewController Delegate
+
 extension DMSearchViewController: DMSearchViewControllerDelegate {
     func didSearchFailed(errorTitle: String, errorMessage: String) {
         self.finishSearch()

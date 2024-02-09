@@ -12,6 +12,8 @@ final class DMUserDefaultsManager {
     private var userDefaults = UserDefaults.standard
     private let currentDate: Date
     private let keys = Localized().userDefaults
+    
+    //MARK: - init
     private init() {
         self.currentDate = Date()
     }
@@ -45,6 +47,8 @@ final class DMUserDefaultsManager {
         
         return true
     }
+    
+    //MARK: - private funcs
 
     private func setDate(){
         userDefaults.set(currentDate, forKey: keys.DATE)

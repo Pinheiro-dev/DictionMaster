@@ -64,6 +64,6 @@ final class DMSearchResultTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.definitionLabel.attributedText = nil
-        self.examplesLabel.attributedText = nil
+        self.examplesLabel.text = nil
     }
 }

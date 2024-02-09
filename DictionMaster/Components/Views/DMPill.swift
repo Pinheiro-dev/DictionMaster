@@ -34,6 +34,8 @@ final class DMPill: UIView {
         return label
     }()
     
+    //MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         roundCorners(radius: 20)
