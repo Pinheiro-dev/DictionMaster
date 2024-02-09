@@ -12,14 +12,6 @@ struct DictionaryModel: Codable {
     let phonetic: String?
     let phonetics: [Phonetic]?
     let meanings: [Meaning]
-    let license: License
-    let sourceUrls: [String]?
-}
-
-// MARK: - License
-struct License: Codable {
-    let name: String
-    let url: String
 }
 
 // MARK: - Meaning
@@ -38,12 +30,4 @@ struct Definition: Codable {
 struct Phonetic: Codable {
     let text: String
     let audio: String
-    let sourceURL: String
-    let license: License
-
-    enum CodingKeys: String, CodingKey {
-        case text, audio
-        case sourceURL = "sourceUrl"
-        case license
-    }
 }

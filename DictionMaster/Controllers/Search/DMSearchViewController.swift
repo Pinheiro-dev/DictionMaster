@@ -31,7 +31,13 @@ final class DMSearchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         customView.textField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
         
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -119,8 +125,8 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
     }
     
     func didSearch(with dictionary: [DictionaryModel]) {
-        self.finishSearch()
         customView.textField.resignFirstResponder()
+        self.finishSearch()        
         let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)

@@ -24,7 +24,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     var phonetic: String?
     
     var audio: String?
-    var player: AVAudioPlayer?
+    private var player: AVAudioPlayer?
     private var result: [DictionaryModel]
     private var resultFormatted: WordDefinitionModel?
     private let api: DMAudioLoaderManager = DMAudioLoaderManager.shared
@@ -69,7 +69,12 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         let data = result[0]
         let title = data.word
         let phonetic: String = data.phonetic ?? ""
-        let audio: String? = data.phonetics?.first?.audio
+        let phonetics: [Phonetic]? = data.phonetics
+        var audio: String?
+        if let phonetics = phonetics, let phonetic = phonetics.first(where: { !$0.audio.isEmpty }) {
+            audio = phonetic.audio
+        }
+         
         
         let item: [MeaningDefinition] = data.meanings.enumerated().compactMap({ index, element in
             let partOfSpeech = element.partOfSpeech;
@@ -95,10 +100,9 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     }
     
     private func playSound(url: URL) {
-        print("play audio")
-       
         do {
-            self.player = try AVAudioPlayer(contentsOf: url)
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try AVAudioPlayer(contentsOf: url)
             player?.prepareToPlay()
             player?.volume = 1.0
             player?.play()
@@ -120,7 +124,11 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     }
     
     func playAudio() {
-        guard let audio = audio, let url = URL(string: audio) else { return }
+        guard let audio = audio, let url = URL(string: audio) else {
+            self.delegate?.didAudioFailed(errorTitle: "Failed to play pronunciation",
+                                          errorMessage: "Sorry pal, you can try again at later time.")
+            return
+        }
         self.api.downloadAudio(url) { result in
             switch result {
             case .success(let urlAudio):
@@ -134,7 +142,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
 }
 
-    //MARK: - TableViewDelegate e TableViewDataSource
+//MARK: - TableViewDelegate e TableViewDataSource
 
 extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
