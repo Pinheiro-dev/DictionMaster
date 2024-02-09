@@ -33,7 +33,7 @@ final class DMSearchView: UIView {
         field.spellCheckingType = .no
         
         let attributedString = NSAttributedString(
-            string: "Type a word...",
+            string: Localized().search.typeAWord,
             attributes: [
                 NSAttributedString.Key.foregroundColor: UIColor(hexString: "#052D39").withAlphaComponent(0.5),
                 NSAttributedString.Key.font: UIFont.SFProRounded(size: 32)
@@ -45,7 +45,7 @@ final class DMSearchView: UIView {
     }()
     
     let searchButton: DMButton = {
-        let button = DMButton(title: "SEARCH")
+        let button = DMButton(title: Localized().search.search)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isHidden = true
         return button

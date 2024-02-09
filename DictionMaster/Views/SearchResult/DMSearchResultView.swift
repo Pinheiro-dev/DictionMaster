@@ -80,14 +80,14 @@ final class DMSearchResultView: UIView {
     
     private let descriptioBottomLabel: UILabel = {
         let label = UILabel()
-        label.text = "Try another search now!"
+        label.text = Localized().searchResult.tryAnotherSearch
         label.font = .SFProRounded(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let newSearchButton: DMButton = {
-        let button = DMButton(title: "NEW SEARCH")
+        let button = DMButton(title: Localized().searchResult.newSearch)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

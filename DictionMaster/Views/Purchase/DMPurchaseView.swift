@@ -44,9 +44,9 @@ final class DMPurchaseView: UIView {
         label.font = .SFProRounded(.bold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        let fullString = "Subscribe now to get unlimited searches and full access to all features."
+        let fullString = Localized().purchase.limitExceeded
         label.attributedText = fullString.attributedString(
-            subStr: "unlimited", "all features.",
+            subStr: Localized().purchase.unlimited, Localized().purchase.allFeatures,
             font: .SFProRounded(.bold, size: 20),
             color: UIColor(hexString: "#5BD6FD")
         )
@@ -62,9 +62,9 @@ final class DMPurchaseView: UIView {
         label.font = .SFProRounded(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        let fullString = "Try 7 Days Free, then only $19,99 per year. Cancel anytime."
+        let fullString = Localized().purchase.pricePurchaseLabel
         label.attributedText = fullString.attributedString(
-            subStr: "Try 7 Days Free", "$19,99",
+            subStr: Localized().purchase.trySevenDays, Localized().purchase.pricePurchaseValue,
             font: .SFProRounded(.bold, size: 16),
             color: UIColor(hexString: "#052D39")
         )
@@ -72,7 +72,7 @@ final class DMPurchaseView: UIView {
     }()
     
     let subscribeButton: DMButton = {
-        let button = DMButton(title: "SUBSCRIBE")
+        let button = DMButton(title: Localized().purchase.subscribe)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -126,12 +126,10 @@ final class DMPurchaseView: UIView {
             
             
             priceLabel.heightAnchor.constraint(equalToConstant: 42),
-//            priceLabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 36.7),
             priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
             priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
             priceLabel.bottomAnchor.constraint(equalTo: subscribeButton.topAnchor, constant: -16),
             
-//            subscribeButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 16),
             subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
             subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
             subscribeButton.heightAnchor.constraint(equalToConstant: 64),

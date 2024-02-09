@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  MatheusPinheiroBarbosa
+
+  Created by Matheus on 09/02/24.
+  
+*/
+
+//MARK: - Search
+"type_a_word" = "Type a word...";
+"search" = "SEARCH";
+"english" = "ENGLISH";
+
+//MARK: - SearchResult
+"try_another_search" = "Try another search now!";
+"new_search" = "NEW SEARCH";
+"thats_it" = "That’s it for “%@”!";
+
+//MARK: - Purchase
+"search_limit_exceeded" = "Subscribe now to get unlimited searches and full access to all features.";
+"unlimited" =  "unlimited";
+"all_features" = "all features.";
+"try_7_days_free" = "Try 7 Days Free";
+"price_purchase_label" = "Try 7 Days Free, then only $19,99 per year. Cancel anytime.";
+"price_purchase_value" = "$19,99";
+"subscribe" = "SUBSCRIBE";
+
+//MARK: - Error
+"generic_title_error_search" = "Error to get definitions";
+"generic_message_error_search" = "Sorry pal, you can try the search again at later time.";
+"generic_title_error_audio" = "Failed to play pronunciation";
+"generic_message" = "Sorry pal, you can try again at later time.";

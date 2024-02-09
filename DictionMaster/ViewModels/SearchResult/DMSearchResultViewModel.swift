@@ -45,7 +45,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         self.audio = resultFormatted?.audio
         
         guard let title = title else { return }
-        self.titleBottom = "That’s it for “\(title.lowercased())”!"
+        self.titleBottom = Localized().searchResult.thatsIt(with: title.lowercased())
     }
     
     private func getFomattedDefinition(partOfSpeech: String, definition: String, index: Int) -> NSMutableAttributedString {
@@ -107,8 +107,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             player?.volume = 1.0
             player?.play()
         } catch {
-            self.delegate?.didAudioFailed(errorTitle: "Failed to play pronunciation",
-                                          errorMessage: "Sorry pal, you can try again at later time.")
+            self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
+                                          errorMessage: Localized().error.genericMessage)
         }
     }
     
@@ -125,8 +125,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
     func playAudio() {
         guard let audio = audio, let url = URL(string: audio) else {
-            self.delegate?.didAudioFailed(errorTitle: "Failed to play pronunciation",
-                                          errorMessage: "Sorry pal, you can try again at later time.")
+            self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
+                                          errorMessage: Localized().error.genericMessage)
             return
         }
         self.api.downloadAudio(with: url) { result in
@@ -134,8 +134,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             case .success(let urlAudio):
                 self.playSound(url: urlAudio)
             case .failure(_):
-                self.delegate?.didAudioFailed(errorTitle: "Failed to play pronunciation",
-                                              errorMessage: "Sorry pal, you can try again at later time.")
+                self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
+                                              errorMessage: Localized().error.genericMessage)
             }
         }
     }
