@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D16097E2B75AAD00058F47D /* DMAPICacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */; };
 		9D96EA752B72A0AF00FCD59D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */; };
 		9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */; };
 		9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMAPICacheManager.swift; sourceTree = "<group>"; };
 		9D96EA712B72A0AF00FCD59D /* MatheusPinheiroBarbosa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatheusPinheiroBarbosa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				9DD21B6C2B74521A00924998 /* DMServiceManager.swift */,
 				9DAC45072B759032003C5A02 /* DMAudioLoaderManager.swift */,
+				9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */,
 				9DAC44F82B751905003C5A02 /* WordDefinitionModel.swift in Sources */,
 				9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */,
+				9D16097E2B75AAD00058F47D /* DMAPICacheManager.swift in Sources */,
 				9DDD3DC52B72D4080017BD10 /* DMSearchView.swift in Sources */,
 				9DAC44FB2B751B8C003C5A02 /* DMSearchResultViewController.swift in Sources */,
 				9DDD3DCD2B732F050017BD10 /* DMButton.swift in Sources */,
@@ -716,6 +720,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -746,6 +751,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

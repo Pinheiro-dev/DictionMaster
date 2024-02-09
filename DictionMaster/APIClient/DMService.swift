@@ -10,6 +10,7 @@ import Foundation
 enum DMServiceError: Error {
     case failedToCreateRequest
     case failedToGetData
+    case failedToGetDataCached
     case failedToGetResponse
     case notFoundWith(error: ErrorNotFoundModel?)
 }
@@ -19,7 +20,7 @@ final class DMService {
     /// Shared singleton instace
     static let shared = DMService()
 
-//    private let cacheManager = DMAPICacheManager()
+    private let cacheManager = DMAPICacheManager.shared
 
     private init() {}
 
@@ -29,17 +30,16 @@ final class DMService {
     ///   - completion: Callback with data or error
     public func execute<T: Decodable>(_ request: DMRequest,
                                       completion: @escaping ((Result<T, Error>) -> Void)) {
-
-//        if let cachedData = cacheManager.cachedResponse(for: request.endpoint,
-//                                                        url: request.url) {
-//            do {
-//                let result = try JSONDecoder().decode(T.self, from: cachedData)
-//                completion(.success(result))
-//            } catch {
-//                completion(.failure(error))
-//            }
-//            return
-//        }
+        
+        if let cachedData = cacheManager.cachedResponse(for: request.url) {
+            do {
+                let result = try JSONDecoder().decode(T.self, from: cachedData)
+                completion(.success(result))
+            } catch {
+                completion(.failure(DMServiceError.failedToGetDataCached))
+            }
+            return
+        }
 
         guard let urlRequest = self.request(from: request) else {
             completion(.failure(DMServiceError.failedToCreateRequest))
@@ -71,9 +71,7 @@ final class DMService {
             //Decode response
             do {
                 let result = try JSONDecoder().decode(T.self, from: data)
-//                self?.cacheManager.setCache(for: request.endpoint,
-//                                            url: request.url,
-//                                            data: data)
+                self?.cacheManager.setCache(for: request.url, data: data)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))

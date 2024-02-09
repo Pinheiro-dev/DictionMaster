@@ -9,7 +9,6 @@ import Foundation
 
 final class DMAudioLoaderManager {
     static let shared = DMAudioLoaderManager()
-
     private var audioDataCache = NSCache<NSString, NSURL>()
 
     private init() {}
@@ -21,7 +20,6 @@ final class DMAudioLoaderManager {
     public func downloadAudio(_ url: URL, completion: @escaping (Result<URL, Error>) -> Void) {
         let key = url.absoluteString as NSString
         if let URL = audioDataCache.object(forKey: key) {
-            print("audio Cache")
             completion(.success(URL as URL))
             return
         }
@@ -34,7 +32,6 @@ final class DMAudioLoaderManager {
 
             let value = URL as NSURL
             self?.audioDataCache.setObject(value, forKey: key)
-            print("audio request")
             completion(.success(URL))
         }
         task.resume()
