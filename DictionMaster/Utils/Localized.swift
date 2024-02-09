@@ -12,6 +12,7 @@ struct Localized {
     let searchResult = SearchResultString()
     let purchase = PurchaseString()
     let error = ErrorString()
+    let userDefaults = UserDefaultsKeys()
 }
 
 //MARK: - SearchString
@@ -47,4 +48,10 @@ internal struct ErrorString {
     let genericMessageSearch = String(localized: "generic_message_error_search")
     let genericTitleAudio = String(localized: "generic_title_error_audio")
     let genericMessage = String(localized: "generic_message")
+}
+
+//MARK: - Cache
+internal struct UserDefaultsKeys {
+    let DATE = "DATE"
+    let COUNT_SEARCH = "COUNT_SEARCH"
 }

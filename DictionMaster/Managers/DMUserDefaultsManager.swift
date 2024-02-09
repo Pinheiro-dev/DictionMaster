@@ -11,12 +11,13 @@ final class DMUserDefaultsManager {
     static let shared = DMUserDefaultsManager()
     private var userDefaults = UserDefaults.standard
     private let currentDate: Date
+    private let keys = Localized().userDefaults
     private init() {
         self.currentDate = Date()
     }
     
     public func isValidSearh(with string: String) -> Bool {
-        guard let dateObject = userDefaults.object(forKey: "DATE") else {
+        guard let dateObject = userDefaults.object(forKey: keys.DATE) else {
             setDate()
             setCountSearch()
             setWord(string)
@@ -38,7 +39,7 @@ final class DMUserDefaultsManager {
         
         if (userDefaults.object(forKey: string.uppercased()) == nil) {
             setWord(string)
-            let count = userDefaults.integer(forKey: "COUNT_SEARCH")
+            let count = userDefaults.integer(forKey: keys.COUNT_SEARCH)
             return count < 5
         }
         
@@ -46,12 +47,12 @@ final class DMUserDefaultsManager {
     }
 
     private func setDate(){
-        userDefaults.set(currentDate, forKey: "DATE")
+        userDefaults.set(currentDate, forKey: keys.DATE)
         userDefaults.synchronize()
     }
     
     private func setCountSearch(){
-        userDefaults.set(0, forKey: "COUNT_SEARCH")
+        userDefaults.set(0, forKey: keys.COUNT_SEARCH)
         userDefaults.synchronize()
     }
     
@@ -61,8 +62,8 @@ final class DMUserDefaultsManager {
     }
     
     private func addCountSearch() {
-        let count = userDefaults.integer(forKey: "COUNT_SEARCH")
-        userDefaults.set(count+1, forKey: "COUNT_SEARCH")
+        let count = userDefaults.integer(forKey: keys.COUNT_SEARCH)
+        userDefaults.set(count+1, forKey: keys.COUNT_SEARCH)
         userDefaults.synchronize()
     }
     
