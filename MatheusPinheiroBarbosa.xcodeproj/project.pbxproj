@@ -17,9 +17,6 @@
 		9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA782B72A0AF00FCD59D /* DMSearchViewController.swift */; };
 		9D96EA7E2B72A0B100FCD59D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */; };
 		9D96EA812B72A0B100FCD59D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D96EA7F2B72A0B100FCD59D /* LaunchScreen.storyboard */; };
-		9D96EA8C2B72A0B100FCD59D /* DictionMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA8B2B72A0B100FCD59D /* DictionMasterTests.swift */; };
-		9D96EA962B72A0B100FCD59D /* DictionMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */; };
-		9D96EA982B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */; };
 		9DAC44F62B750E1F003C5A02 /* ErrorNotFoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44F52B750E1F003C5A02 /* ErrorNotFoundModel.swift */; };
 		9DAC44F82B751905003C5A02 /* WordDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44F72B751905003C5A02 /* WordDefinitionModel.swift */; };
 		9DAC44FB2B751B8C003C5A02 /* DMSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44FA2B751B8C003C5A02 /* DMSearchResultViewController.swift */; };
@@ -81,10 +78,7 @@
 		9D96EA802B72A0B100FCD59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D96EA822B72A0B100FCD59D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D96EA872B72A0B100FCD59D /* MatheusPinheiroBarbosaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatheusPinheiroBarbosaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D96EA8B2B72A0B100FCD59D /* DictionMasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterTests.swift; sourceTree = "<group>"; };
 		9D96EA912B72A0B100FCD59D /* MatheusPinheiroBarbosaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatheusPinheiroBarbosaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITests.swift; sourceTree = "<group>"; };
-		9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9DAC44F52B750E1F003C5A02 /* ErrorNotFoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotFoundModel.swift; sourceTree = "<group>"; };
 		9DAC44F72B751905003C5A02 /* WordDefinitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDefinitionModel.swift; sourceTree = "<group>"; };
 		9DAC44FA2B751B8C003C5A02 /* DMSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultViewController.swift; sourceTree = "<group>"; };
@@ -171,8 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				9D96EA732B72A0AF00FCD59D /* DictionMaster */,
-				9D96EA8A2B72A0B100FCD59D /* DictionMasterTests */,
-				9D96EA942B72A0B100FCD59D /* DictionMasterUITests */,
 				9D96EA722B72A0AF00FCD59D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -202,23 +194,6 @@
 				9DDD3DC62B72D9370017BD10 /* Components */,
 			);
 			path = DictionMaster;
-			sourceTree = "<group>";
-		};
-		9D96EA8A2B72A0B100FCD59D /* DictionMasterTests */ = {
-			isa = PBXGroup;
-			children = (
-				9D96EA8B2B72A0B100FCD59D /* DictionMasterTests.swift */,
-			);
-			path = DictionMasterTests;
-			sourceTree = "<group>";
-		};
-		9D96EA942B72A0B100FCD59D /* DictionMasterUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9D96EA952B72A0B100FCD59D /* DictionMasterUITests.swift */,
-				9D96EA972B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift */,
-			);
-			path = DictionMasterUITests;
 			sourceTree = "<group>";
 		};
 		9DAC44F92B751B76003C5A02 /* SearchResult */ = {
@@ -572,7 +547,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D96EA8C2B72A0B100FCD59D /* DictionMasterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,8 +554,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D96EA962B72A0B100FCD59D /* DictionMasterUITests.swift in Sources */,
-				9D96EA982B72A0B100FCD59D /* DictionMasterUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
