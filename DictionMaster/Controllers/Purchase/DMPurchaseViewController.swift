@@ -21,7 +21,7 @@ final class DMPurchaseViewController: UIViewController {
     }
     
     @objc private func onClick(_ sender: UIButton) {
-        //excuteClick
+        self.navigationController?.popViewController(animated: true)
     }
 
     private func setupView() {
@@ -38,8 +38,8 @@ final class DMPurchaseViewController: UIViewController {
     }
     
     private func bind() {
-//        customView.searchButton.addTarget(self,
-//                                          action: #selector(onClick(_:)),
-//                                          for: .touchUpInside)
+        customView.subscribeButton.addTarget(self,
+                                             action: #selector(onClick(_:)),
+                                             for: .touchUpInside)
     }
 }

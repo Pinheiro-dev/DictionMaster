@@ -12,6 +12,7 @@ enum DMServiceError: Error {
     case failedToGetData
     case failedToGetDataCached
     case failedToGetResponse
+    case searchLimitExceeded
     case notFoundWith(error: ErrorNotFoundModel?)
 }
 
@@ -21,6 +22,7 @@ final class DMService {
     static let shared = DMService()
 
     private let cacheManager = DMAPICacheManager.shared
+    private let userDefaults = DMUserDefaultsManager.shared
 
     private init() {}
 
@@ -38,6 +40,11 @@ final class DMService {
             } catch {
                 completion(.failure(DMServiceError.failedToGetDataCached))
             }
+            return
+        }
+        
+        if (!self.userDefaults.isValidSearh(with: request.param)) {
+            completion(.failure(DMServiceError.searchLimitExceeded))
             return
         }
 

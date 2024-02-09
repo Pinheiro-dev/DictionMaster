@@ -10,6 +10,7 @@ import UIKit
 protocol DMSearchViewControllerDelegate: AnyObject {
     func didSearch(with dictionary: [DictionaryModel])
     func didSearchFailed(errorTitle: String, errorMessage: String)
+    func goToPurchase()
 }
 
 final class DMSearchViewController: UIViewController {
@@ -130,8 +131,14 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
         let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)
-//        let vc = DMPurchaseViewController()
-//        vc.navigationItem.hidesBackButton = true
-//        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
+    func goToPurchase() {
+        customView.textField.resignFirstResponder()
+        self.finishSearch()
+        let vc = DMPurchaseViewController()
+        vc.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -71,7 +71,7 @@ final class DMPurchaseView: UIView {
         return label
     }()
     
-    let subsbribeButton: DMButton = {
+    let subscribeButton: DMButton = {
         let button = DMButton(title: "SUBSCRIBE")
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -97,7 +97,7 @@ final class DMPurchaseView: UIView {
                     titleImageView,
                     infoLabel,
                     priceLabel,
-                    subsbribeButton)
+                    subscribeButton)
     }
     
     private func addConstraints() {
@@ -126,15 +126,16 @@ final class DMPurchaseView: UIView {
             
             
             priceLabel.heightAnchor.constraint(equalToConstant: 42),
-            priceLabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 36.7),
+//            priceLabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 36.7),
             priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
             priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
+            priceLabel.bottomAnchor.constraint(equalTo: subscribeButton.topAnchor, constant: -16),
             
-            subsbribeButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 16),
-            subsbribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
-            subsbribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
-            subsbribeButton.heightAnchor.constraint(equalToConstant: 64),
-            subsbribeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+//            subscribeButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 16),
+            subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
+            subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
+            subscribeButton.heightAnchor.constraint(equalToConstant: 64),
+            subscribeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

@@ -16,7 +16,7 @@ final class DMServiceManager: DMServiceManagerProtocol {
     
     func getDictionayWord(param: String,
                           completion: @escaping (Result<[DictionaryModel], Error>) -> Void) {
-        let request = DMRequest(endpoint: .entries, param: param)
+        let request = DMRequest(endpoint: .entries, param: param.lowercased())
         DMService.shared.execute(request) { (result: Result<[DictionaryModel], Error>) in
             switch result {
             case .success(let responseModel):

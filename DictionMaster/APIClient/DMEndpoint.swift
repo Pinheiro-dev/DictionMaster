@@ -11,6 +11,4 @@ import Foundation
 @frozen enum DMEndpoint: String {
     /// Enpoint to get word info
     case entries
-    /// Enpoint to get pronunciation mp3
-    case pronunciations
 }

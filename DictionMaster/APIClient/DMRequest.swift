@@ -17,17 +17,11 @@ final class DMRequest {
 
     /// Desired endpoint
     let endpoint: DMEndpoint
-    /// Param for API, if any
-    private let param: String?
-    
-    private let urlParm: String?
+    /// Parameter for API, if any
+    public var param: String
 
     /// Constructed url fot the api request in string format
     private var urlString: String {
-        guard let param = param else {
-            return urlParm!
-        }
-        
         var string = Constants.baseURL
         switch endpoint {
             default:
@@ -52,17 +46,16 @@ final class DMRequest {
     ///   - endpoint: Target endpoint
     ///   - param: Parameter to send
     ///   - method: Method to call
-    ///   - url: URL to call service without endpoint and param
     init(endpoint: DMEndpoint,
-         param: String? = nil,
-         method: HttpMethod = .get,
-         _ url: String? = nil) {
+         param: String,
+         method: HttpMethod = .get) {
         self.endpoint = endpoint
         self.param = param
         self.httpMethod = method
-        self.urlParm = url
     }
 }
+
+//MARK: - HttpMethod
 
 extension DMRequest {
     enum HttpMethod: String {

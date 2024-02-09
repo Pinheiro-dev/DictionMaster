@@ -16,6 +16,7 @@ protocol DMSearchViewModelDelegate: AnyObject {
 final class DMSearchViewModel: DMSearchViewModelDelegate {
     private weak var delegate: DMSearchViewControllerDelegate?
     private let api: DMServiceManagerProtocol = DMServiceManager()
+    private let userDefaults = DMUserDefaultsManager.shared
     
     //MARK: - Actions
     
@@ -30,6 +31,8 @@ final class DMSearchViewModel: DMSearchViewModelDelegate {
         case .notFoundWith(let notFoundModel):
             self.delegate?.didSearchFailed(errorTitle: notFoundModel?.title ?? "Error to get definitions",
                                            errorMessage: notFoundModel?.message ?? "Sorry pal, you can try the search again at later time.")
+        case .searchLimitExceeded:
+            self.delegate?.goToPurchase()
         default:
             self.delegate?.didSearchFailed(errorTitle: "Error to get definitions",
                                            errorMessage: "Sorry pal, you can try the search again at later time.")
