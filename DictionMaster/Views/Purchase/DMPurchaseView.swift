@@ -11,7 +11,7 @@ final class DMPurchaseView: UIView {
     
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(named: "personPhoto")
+        let image = Image().personPhoto
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +20,7 @@ final class DMPurchaseView: UIView {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(named: "icon")
+        let image = Image().logoIcon
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -28,7 +28,7 @@ final class DMPurchaseView: UIView {
     
     private let titleImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(named: "title")
+        let image = Image().titleImg
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false

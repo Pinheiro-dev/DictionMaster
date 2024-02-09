@@ -18,7 +18,7 @@ final class DMPill: UIView {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(named: "englandFlag")
+        let image = Image().englandFlag
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

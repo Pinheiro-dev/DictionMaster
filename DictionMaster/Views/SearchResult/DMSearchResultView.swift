@@ -39,7 +39,7 @@ final class DMSearchResultView: UIView {
 
     private let speakerImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(named: "audioSpeaker")
+        let image = Image().speaker
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
