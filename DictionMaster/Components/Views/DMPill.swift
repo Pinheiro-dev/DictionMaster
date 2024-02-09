@@ -11,7 +11,7 @@ final class DMPill: UIView {
     
     private let viewPill: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#91A9B1").withAlphaComponent(0.10)
+        view.backgroundColor = Color().backgroundPill.withAlphaComponent(0.10)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -27,7 +27,7 @@ final class DMPill: UIView {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.text = Localized().search.english
-        label.textColor = UIColor(hexString: "#052D39")
+        label.textColor = Color().primaryColor
         label.font = .SFProRounded(size: 18)
         label.addCharacterSpacing(kernValue: 1.8)
         label.translatesAutoresizingMaskIntoConstraints = false

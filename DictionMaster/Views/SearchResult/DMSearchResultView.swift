@@ -13,7 +13,7 @@ final class DMSearchResultView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "-"
-        label.textColor = .init(hexString: "#052D39")
+        label.textColor = Color().primaryColor
         label.font = .SFProRounded(.bold, size: 45)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,7 +22,7 @@ final class DMSearchResultView: UIView {
     let pronunciationLabel: UILabel = {
         let label = UILabel()
         label.text = "-"
-        label.textColor = .init(hexString: "#052D39").withAlphaComponent(0.40)
+        label.textColor = Color().primaryColor.withAlphaComponent(0.40)
         label.font = .SFProRounded(.bold, size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,7 +30,7 @@ final class DMSearchResultView: UIView {
 
     let audioView: UIView = {
         let view = UIView()
-        view.backgroundColor = .init(hexString: "#5BD6FD")
+        view.backgroundColor = Color().secondayColor
         view.roundCorners(radius: 23)
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ final class DMSearchResultView: UIView {
     
     private var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#052D39").withAlphaComponent(0.10)
+        view.backgroundColor = Color().primaryColor.withAlphaComponent(0.10)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

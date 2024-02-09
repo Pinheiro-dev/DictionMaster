@@ -53,7 +53,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         let fullString = "\(index.description))" + speechString + definition
         let attributedString = fullString.attributedString(subStr: speechString,
                                                            font: .SFProRounded(.bold, size: 16),
-                                                           color: .init(hexString: "#052D39").withAlphaComponent(0.50))
+                                                           color: Color().primaryColor.withAlphaComponent(0.50))
         return attributedString
     }
     

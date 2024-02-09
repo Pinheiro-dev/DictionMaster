@@ -40,7 +40,7 @@ final class DMPurchaseView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = UIColor(hexString: "#052D39")
+        label.textColor = Color().primaryColor
         label.font = .SFProRounded(.bold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -48,7 +48,7 @@ final class DMPurchaseView: UIView {
         label.attributedText = fullString.attributedString(
             subStr: Localized().purchase.unlimited, Localized().purchase.allFeatures,
             font: .SFProRounded(.bold, size: 20),
-            color: UIColor(hexString: "#5BD6FD")
+            color: Color().secondayColor
         )
         return label
     }()
@@ -58,7 +58,7 @@ final class DMPurchaseView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = UIColor(hexString: "#052D39")
+        label.textColor = Color().primaryColor
         label.font = .SFProRounded(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -66,7 +66,7 @@ final class DMPurchaseView: UIView {
         label.attributedText = fullString.attributedString(
             subStr: Localized().purchase.trySevenDays, Localized().purchase.pricePurchaseValue,
             font: .SFProRounded(.bold, size: 16),
-            color: UIColor(hexString: "#052D39")
+            color: Color().primaryColor
         )
         return label
     }()

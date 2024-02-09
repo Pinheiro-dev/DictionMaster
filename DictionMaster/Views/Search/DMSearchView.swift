@@ -24,18 +24,18 @@ final class DMSearchView: UIView {
     }()
 
      let textField: UITextField = {
-        let field = UITextField()
-        field.textColor = .init(hexString: "#052D39")
-        field.tintColor = .clear
-        field.font = .SFProRounded(.bold, size: 32)
-        field.textAlignment = .center
-        field.autocorrectionType = .no
-        field.spellCheckingType = .no
-        
-        let attributedString = NSAttributedString(
+         let field = UITextField()
+         field.textColor = Color().primaryColor//.init(hexString: "#052D39")
+         field.tintColor = .clear
+         field.font = .SFProRounded(.bold, size: 32)
+         field.textAlignment = .center
+         field.autocorrectionType = .no
+         field.spellCheckingType = .no
+         
+         let attributedString = NSAttributedString(
             string: Localized().search.typeAWord,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor(hexString: "#052D39").withAlphaComponent(0.5),
+                NSAttributedString.Key.foregroundColor: Color().primaryColor.withAlphaComponent(0.5),
                 NSAttributedString.Key.font: UIFont.SFProRounded(size: 32)
             ]
         )

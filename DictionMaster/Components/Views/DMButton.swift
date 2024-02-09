@@ -27,7 +27,7 @@ final class DMButton: UIButton {
         self.setTitleColor(.white, for: .normal)
         self.titleLabel?.font = .SFProRounded(.bold, size: 18)
         self.titleLabel?.addCharacterSpacing(kernValue: 1.8)
-        self.backgroundColor = .init(hexString: "#5BD6FD")
+        self.backgroundColor = Color().secondayColor
         self.roundCorners(radius: 14)
         self.layer.masksToBounds = true
         self.translatesAutoresizingMaskIntoConstraints = false
