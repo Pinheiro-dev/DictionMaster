@@ -73,6 +73,7 @@ final class DMSearchResultView: UIView {
     let titleBottomLabel: UILabel = {
         let label = UILabel()
         label.text = ""
+        label.textColor = Color().primaryColor
         label.font = .SFProRounded(.bold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -81,6 +82,7 @@ final class DMSearchResultView: UIView {
     private let descriptioBottomLabel: UILabel = {
         let label = UILabel()
         label.text = Localized().searchResult.tryAnotherSearch
+        label.textColor = Color().primaryColor
         label.font = .SFProRounded(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
