@@ -12,6 +12,7 @@ final class DMSearchResultView: UIView {
     
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
+        scroll.backgroundColor = .white
         scroll.showsVerticalScrollIndicator = false
         scroll.translatesAutoresizingMaskIntoConstraints = false
         return scroll
