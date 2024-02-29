@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D12962F2B91186B00A9E5CB /* DMSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D12962E2B91186B00A9E5CB /* DMSearchResultTableViewCell.swift */; };
+		9D1296312B911A6600A9E5CB /* DMSearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1296302B911A6600A9E5CB /* DMSearchResultHeaderView.swift */; };
+		9D1296332B912C4100A9E5CB /* DMSearchResultFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1296322B912C4100A9E5CB /* DMSearchResultFooterView.swift */; };
 		9D16097E2B75AAD00058F47D /* DMAPICacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */; };
 		9D194A852B765AA50071A4C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D194A872B765AA50071A4C5 /* Localizable.strings */; };
 		9D194A8B2B7661060071A4C5 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D194A8A2B7661060071A4C5 /* Localized.swift */; };
@@ -65,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D12962E2B91186B00A9E5CB /* DMSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		9D1296302B911A6600A9E5CB /* DMSearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultHeaderView.swift; sourceTree = "<group>"; };
+		9D1296322B912C4100A9E5CB /* DMSearchResultFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultFooterView.swift; sourceTree = "<group>"; };
 		9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMAPICacheManager.swift; sourceTree = "<group>"; };
 		9D194A862B765AA50071A4C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D194A8A2B7661060071A4C5 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -134,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D12962D2B91183900A9E5CB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9D12962E2B91186B00A9E5CB /* DMSearchResultTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9D194A802B7658180071A4C5 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				9DAC44FE2B751BFB003C5A02 /* DMSearchResultView.swift */,
+				9D1296302B911A6600A9E5CB /* DMSearchResultHeaderView.swift */,
+				9D1296322B912C4100A9E5CB /* DMSearchResultFooterView.swift */,
+				9D12962D2B91183900A9E5CB /* Cells */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -509,7 +526,9 @@
 				9D96EA792B72A0AF00FCD59D /* DMSearchViewController.swift in Sources */,
 				9D194A8B2B7661060071A4C5 /* Localized.swift in Sources */,
 				9DDC176A2B75C7F00006A33D /* DMUserDefaultsManager.swift in Sources */,
+				9D1296332B912C4100A9E5CB /* DMSearchResultFooterView.swift in Sources */,
 				9DD21B672B74493E00924998 /* DMRequest.swift in Sources */,
+				9D12962F2B91186B00A9E5CB /* DMSearchResultTableViewCell.swift in Sources */,
 				9DDD3DCB2B72DC560017BD10 /* Extensions.swift in Sources */,
 				9D96EA752B72A0AF00FCD59D /* AppDelegate.swift in Sources */,
 				9DD21B692B74498C00924998 /* DMEndpoint.swift in Sources */,
@@ -524,6 +543,7 @@
 				9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */,
 				9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */,
 				9D194A8D2B7671FB0071A4C5 /* Color.swift in Sources */,
+				9D1296312B911A6600A9E5CB /* DMSearchResultHeaderView.swift in Sources */,
 				9D194A8F2B767DC20071A4C5 /* Image.swift in Sources */,
 				9DAC44F82B751905003C5A02 /* WordDefinitionModel.swift in Sources */,
 				9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */,

@@ -10,19 +10,22 @@ import UIKit
 import AVFoundation
 
 protocol DMSearchResultViewModelDelegate: AnyObject {
+    func getInstance() -> NSObject & UITableViewDelegate & UITableViewDataSource
     func setDelegate(_ delegate: DMSearchResultViewControllerDelegate?)
+    func setHeaderDelegate(_ delegate: DMSerachResultFooterViewDelegate?)
     func playAudio()
-    var title: String? { get }
-    var titleBottom: String? { get }
-    var phonetic: String? { get }
-    var definition: NSMutableAttributedString? {get}
+}
+
+protocol DMSearchResultHeaderFooterDelegate: AnyObject {
+    func didClick(with type: ViewType)
+}
+
+enum ViewType {
+    case header
+    case footer
 }
 
 final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
-    var title: String?
-    var titleBottom: String?
-    var phonetic: String?
-    var definition: NSMutableAttributedString?
     
     var audio: String?
     private var player: AVAudioPlayer?
@@ -30,6 +33,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private var resultFormatted: WordDefinitionModel?
     private let api: DMServiceManagerProtocol = DMServiceManager()
     private weak var delegate: DMSearchResultViewControllerDelegate?
+    private weak var headerDelegate: DMSerachResultFooterViewDelegate?
     
     //MARK: - init
     
@@ -41,38 +45,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     }
     
     private func setUpDelegateVariables() {
-        self.title = resultFormatted?.title.capitalized
-        self.phonetic = resultFormatted?.phonetic
-        self.definition = resultFormatted?.definition
         self.audio = resultFormatted?.audio
-        
-        guard let title = title else { return }
-        self.titleBottom = Localized().searchResult.thatsIt(with: title.lowercased())
-    }
-    
-    private func getFormattedDefinitions(definitions: [MeaningDefinition]) -> NSMutableAttributedString {
-        let definition = NSMutableAttributedString(string: "")
-        for (index, item) in definitions.enumerated() {
-            let brakeLine = index < definitions.endIndex ? "\n\n" : ""
-            var examples: String
-            if (item.examples.isEmpty) {
-                examples = item.examples + brakeLine
-            } else {
-                examples = "\n\n" + item.examples + brakeLine
-            }
-            
-            let attributedText = NSAttributedString(
-                string: examples,
-                attributes: [
-                    NSAttributedString.Key.foregroundColor: Color().primaryColor,
-                    NSAttributedString.Key.font: UIFont.SFProRounded(size: 16)
-                ]
-            )
-            definition.append(item.definition)
-            definition.append(attributedText)
-        }
-        
-        return definition
     }
     
     private func getFomattedDefinition(partOfSpeech: String, definition: String, index: Int) -> NSMutableAttributedString {
@@ -118,12 +91,10 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
                                      examples: examples)
         })
 
-        let definitions = getFormattedDefinitions(definitions: item)
-        
         let model = WordDefinitionModel(title: title,
                                         phonetic: phonetic,
                                         audio: audio,
-                                        definition: definitions)
+                                        item: item)
 
         return model
     }
@@ -140,19 +111,29 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
                                           errorMessage: Localized().error.genericMessage)
         }
-        self.delegate?.didAudioPlayed()
+        self.headerDelegate?.stopLoading()
     }
     
     
     //MARK: - Actions
+    
+    func getInstance() -> NSObject & UITableViewDelegate & UITableViewDataSource {
+        return self
+    }
+    
     func setDelegate(_ delegate: DMSearchResultViewControllerDelegate?) {
         self.delegate = delegate
+    }
+    
+    func setHeaderDelegate(_ delegate: DMSerachResultFooterViewDelegate?) {
+        self.headerDelegate = delegate
     }
     
     func playAudio() {
         guard let audio = audio, let url = URL(string: audio) else {
             self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
                                           errorMessage: Localized().error.genericMessage)
+            self.headerDelegate?.stopLoading()
             return
         }
         self.api.downloadAudio(with: url) { result in
@@ -162,8 +143,86 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             case .failure(_):
                 self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
                                               errorMessage: Localized().error.genericMessage)
+                self.headerDelegate?.stopLoading()
             }
         }
     }
     
+}
+
+//MARK: - Footer e Header Delegate
+
+extension DMSearchResultViewModel: DMSearchResultHeaderFooterDelegate {
+    func didClick(with type: ViewType) {
+        switch type {
+        case .header:
+            self.playAudio()
+        case .footer:
+            self.delegate?.pop()
+        }
+    }
+}
+
+//MARK: - TableViewDelegate e TableViewDataSource
+
+extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resultFormatted?.item.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let data = resultFormatted,
+              let cell = tableView.dequeueReusableCell(withIdentifier: DMSearchResultTableViewCell.cellIdentifier,
+                                                       for: indexPath) as? DMSearchResultTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        
+        let item = data.item[indexPath.row]
+
+        cell.definitionLabel.attributedText = item.definition
+        cell.examplesLabel.text = item.examples
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let data = resultFormatted,
+              let header = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: DMSearchResultHeaderView.identifier
+              ) as? DMSearchResultHeaderView else {
+            return UIView()
+        }
+        
+        header.setDelegate(delegate: self)
+        header.configViewModel(with: self)
+        header.titleLabel.text = data.title.capitalized
+        header.pronunciationLabel.text = data.phonetic
+        return header
+     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 138
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let data = resultFormatted,
+              let footer = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: DMSearchResultFooterView.identifier
+              ) as? DMSearchResultFooterView else {
+            return UIView()
+        }
+        
+        footer.setDelegate(delegate: self)
+        footer.titleBottomLabel.text = Localized().searchResult.thatsIt(with: data.title.lowercased())
+        return footer
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 240
+    }
+
 }
