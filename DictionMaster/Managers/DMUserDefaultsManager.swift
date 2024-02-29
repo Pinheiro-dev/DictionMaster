@@ -25,7 +25,8 @@ final class DMUserDefaultsManager {
             setWord(string)
             return true
         }
-                
+        
+        let count = userDefaults.integer(forKey: keys.COUNT_SEARCH)
         let date = dateObject as! Date
         let day = date.get(.day)
         let month = date.get(.month)
@@ -34,15 +35,20 @@ final class DMUserDefaultsManager {
         let currentMonth = currentDate.get(.month)
         
         if ((day == currentDay) && (month == currentMonth)) {
-            self.addCountSearch()
+            if (count < 5) {
+                self.addCountSearch()
+            }
         } else {
             self.resetUserDefaults()
         }
         
+        if (count >= 5) {
+            return false
+        }
+        
         if (userDefaults.object(forKey: string.uppercased()) == nil) {
             setWord(string)
-            let count = userDefaults.integer(forKey: keys.COUNT_SEARCH)
-            return count < 5
+            return count <= 5
         }
         
         return true
@@ -56,7 +62,7 @@ final class DMUserDefaultsManager {
     }
     
     private func setCountSearch(){
-        userDefaults.set(0, forKey: keys.COUNT_SEARCH)
+        userDefaults.set(1, forKey: keys.COUNT_SEARCH)
         userDefaults.synchronize()
     }
     
