@@ -109,6 +109,7 @@ final class DMService {
         guard let url = rmRequest.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = rmRequest.httpMethod.rawValue
+        request.timeoutInterval = 60
 
         return request
     }
