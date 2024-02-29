@@ -129,7 +129,7 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
         self.finishSearch()
         let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.push(viewController: vc)
     }
     
     func goToPurchase() {
@@ -137,6 +137,6 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
         self.finishSearch()
         let vc = DMPurchaseViewController()
         vc.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.push(viewController: vc)
     }
 }

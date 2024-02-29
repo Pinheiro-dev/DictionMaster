@@ -21,7 +21,7 @@ final class DMPurchaseViewController: UIViewController {
     }
     
     @objc private func onClick(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.pop()
     }
 
     private func setupView() {

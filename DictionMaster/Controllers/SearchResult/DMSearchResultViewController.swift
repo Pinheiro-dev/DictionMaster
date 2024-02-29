@@ -37,7 +37,7 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     @objc private func onClickSearchButton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.pop()
     }
     
     @objc private func onClickAudio(_ sender: UIButton) {
