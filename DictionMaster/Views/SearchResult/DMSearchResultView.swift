@@ -68,6 +68,7 @@ final class DMSearchResultView: UIView {
     let titleBottomLabel: UILabel = {
         let label = UILabel()
         label.text = ""
+        label.numberOfLines = 0
         label.textColor = Color().primaryColor
         label.font = .SFProRounded(.bold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +135,7 @@ final class DMSearchResultView: UIView {
             buttonSpeaker.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 13),
             buttonSpeaker.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
             
-            pronunciationLabel.leftAnchor.constraint(equalTo: buttonSpeaker.rightAnchor, constant: 10),
+            pronunciationLabel.leftAnchor.constraint(equalTo: buttonSpeaker.rightAnchor, constant: 11),
             pronunciationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
             pronunciationLabel.centerYAnchor.constraint(equalTo: buttonSpeaker.centerYAnchor),
             

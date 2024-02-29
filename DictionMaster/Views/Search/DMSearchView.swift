@@ -9,14 +9,6 @@ import UIKit
 
 final class DMSearchView: UIView {
     
-    let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.color = .black
-        spinner.hidesWhenStopped = true
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        return spinner
-    }()
-    
     private var pill: DMPill = {
         let pill = DMPill()
         pill.translatesAutoresizingMaskIntoConstraints = false
@@ -68,20 +60,15 @@ final class DMSearchView: UIView {
     }
 
     private func setupViews() {
-        addSubviews(spinner, pill, textField, searchButton)
+        addSubviews(pill, textField, searchButton)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            spinner.heightAnchor.constraint(equalToConstant: 100),
-            spinner.widthAnchor.constraint(equalToConstant: 100),
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
             pill.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 75),
             pill.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            textField.topAnchor.constraint(equalTo: pill.topAnchor, constant: 174),
+            textField.topAnchor.constraint(equalTo: pill.bottomAnchor, constant: 174),
             textField.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             textField.centerXAnchor.constraint(equalTo: centerXAnchor),
