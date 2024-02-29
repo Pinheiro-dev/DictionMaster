@@ -4,7 +4,7 @@
 //
 //  Created by Matheus on 06/02/24.
 //
-
+import Foundation
 import UIKit
 
 protocol DMSearchViewControllerDelegate: AnyObject {
@@ -83,21 +83,18 @@ final class DMSearchViewController: UIViewController {
                                        for: .editingChanged)
         customView.textField.delegate = self
         
-        customView.searchButton.addTarget(self, 
-                                          action: #selector(onClick(_:)),
-                                          for: .touchUpInside)
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClick(_:)))
+        customView.searchButton.addGestureRecognizer(gesture)
     }
     
     private func finishSearch() {
-        customView.spinner.stopAnimating()
-        customView.searchButton.enable(true)
+        customView.searchButton.setLoading(true)
         customView.textField.text = ""
         textFieldDidChange(customView.textField)
     }
     
     private func search(word: String) {
-        customView.spinner.startAnimating()
-        customView.searchButton.enable(false)
+        customView.searchButton.setLoading(false)
         self.viewModel.fetchSearch(with: word)
     }
     
@@ -109,11 +106,11 @@ extension DMSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let word = textField.text,
               !word.isEmpty,
-              customView.searchButton.isEnabled else {
+              customView.searchButton.isUserInteractionEnabled else {
             return true
         }
         
-        self.customView.searchButton.enable(false)
+        self.customView.searchButton.setLoading(false)
         self.search(word: word)
         return true;
     }
@@ -129,7 +126,7 @@ extension DMSearchViewController: DMSearchViewControllerDelegate {
     
     func didSearch(with dictionary: [DictionaryModel]) {
         customView.textField.resignFirstResponder()
-        self.finishSearch()        
+        self.finishSearch()
         let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)

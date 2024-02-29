@@ -38,8 +38,7 @@ final class DMPurchaseViewController: UIViewController {
     }
     
     private func bind() {
-        customView.subscribeButton.addTarget(self,
-                                             action: #selector(onClick(_:)),
-                                             for: .touchUpInside)
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClick(_:)))
+        customView.subscribeButton.addGestureRecognizer(gesture)
     }
 }

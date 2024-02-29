@@ -131,7 +131,7 @@ final class DMPurchaseView: UIView {
             subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
             subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
             subscribeButton.heightAnchor.constraint(equalToConstant: 64),
-            subscribeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            subscribeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -36)
         ])
     }
 }

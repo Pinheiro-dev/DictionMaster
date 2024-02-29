@@ -28,21 +28,10 @@ final class DMSearchResultView: UIView {
         return label
     }()
 
-    let audioView: UIView = {
-        let view = UIView()
-        view.backgroundColor = Color().secondayColor
-        view.roundCorners(radius: 23)
-        view.layer.masksToBounds = true
+    let buttonSpeaker: DMAudioButton = {
+        let view = DMAudioButton()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }()
-
-    private let speakerImageView: UIImageView = {
-        let imageView = UIImageView()
-        let image = Image().speaker
-        imageView.image = image
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
     }()
     
     let tableView: UITableView = {
@@ -110,12 +99,11 @@ final class DMSearchResultView: UIView {
 
     private func setupViews() {
         addSubviews(titleLabel,
-                    audioView,
+                    buttonSpeaker,
                     pronunciationLabel,
                     tableView,
                     separatorView,
                     bottomView)
-        audioView.addSubview(speakerImageView)
         
         bottomView.addSubviews(titleBottomLabel,
                                descriptioBottomLabel,
@@ -128,21 +116,16 @@ final class DMSearchResultView: UIView {
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
             titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
             
-            audioView.heightAnchor.constraint(equalToConstant: 46),
-            audioView.widthAnchor.constraint(equalToConstant: 46),
-            audioView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 13),
-            audioView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
+            buttonSpeaker.heightAnchor.constraint(equalToConstant: 46),
+            buttonSpeaker.widthAnchor.constraint(equalToConstant: 46),
+            buttonSpeaker.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 13),
+            buttonSpeaker.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
             
-            speakerImageView.heightAnchor.constraint(equalToConstant: 20.4),
-            speakerImageView.widthAnchor.constraint(equalToConstant: 22.95),
-            speakerImageView.centerXAnchor.constraint(equalTo: audioView.centerXAnchor),
-            speakerImageView.centerYAnchor.constraint(equalTo: audioView.centerYAnchor),
-            
-            pronunciationLabel.leftAnchor.constraint(equalTo: audioView.rightAnchor, constant: 10),
+            pronunciationLabel.leftAnchor.constraint(equalTo: buttonSpeaker.rightAnchor, constant: 10),
             pronunciationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
-            pronunciationLabel.centerYAnchor.constraint(equalTo: audioView.centerYAnchor),
+            pronunciationLabel.centerYAnchor.constraint(equalTo: buttonSpeaker.centerYAnchor),
             
-            tableView.topAnchor.constraint(equalTo: audioView.bottomAnchor, constant: 25),
+            tableView.topAnchor.constraint(equalTo: buttonSpeaker.bottomAnchor, constant: 25),
             tableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
             tableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
             tableView.bottomAnchor.constraint(equalTo: separatorView.topAnchor),

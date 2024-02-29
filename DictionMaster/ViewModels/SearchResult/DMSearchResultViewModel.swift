@@ -110,6 +110,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
                                           errorMessage: Localized().error.genericMessage)
         }
+        self.delegate?.didAudioPlayed()
     }
     
     

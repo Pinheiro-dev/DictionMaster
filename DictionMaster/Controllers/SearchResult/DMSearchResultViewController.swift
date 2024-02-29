@@ -10,6 +10,7 @@ import UIKit
 
 protocol DMSearchResultViewControllerDelegate: AnyObject {
     func didAudioFailed(errorTitle: String, errorMessage: String)
+    func didAudioPlayed()
 }
 
 final class DMSearchResultViewController: UIViewController {
@@ -40,6 +41,7 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     @objc private func onClickAudio(_ sender: UIButton) {
+        self.customView.buttonSpeaker.setLoading(true)
         self.viewModel.playAudio()
     }
 
@@ -61,12 +63,18 @@ final class DMSearchResultViewController: UIViewController {
         customView.pronunciationLabel.text = self.viewModel.phonetic
         customView.titleBottomLabel.text = self.viewModel.titleBottom
         
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClickAudio(_:)))
-        customView.audioView.addGestureRecognizer(gesture)
-        customView.newSearchButton.addTarget(self, action: #selector(onClickSearchButton(_:)), for: .touchUpInside)
+        let gestureAudio = UITapGestureRecognizer(target: self, action:  #selector(onClickAudio(_:)))
+        customView.buttonSpeaker.addGestureRecognizer(gestureAudio)
+        
+        let gestureButton = UITapGestureRecognizer(target: self, action:  #selector(onClickSearchButton(_:)))
+        customView.newSearchButton.addGestureRecognizer(gestureButton)
         
         customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
         customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
+    }
+    
+    private func finishAudioLoading() {
+        self.customView.buttonSpeaker.setLoading(false)
     }
 }
 
@@ -74,6 +82,11 @@ final class DMSearchResultViewController: UIViewController {
 
 extension DMSearchResultViewController: DMSearchResultViewControllerDelegate {
     func didAudioFailed(errorTitle: String, errorMessage: String) {
+        self.finishAudioLoading()
         self.showAlertMessage(title: errorTitle, message: errorMessage)
+    }
+    
+    func didAudioPlayed() {
+        self.finishAudioLoading()
     }
 }
