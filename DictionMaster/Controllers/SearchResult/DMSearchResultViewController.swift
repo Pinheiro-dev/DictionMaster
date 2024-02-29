@@ -29,6 +29,7 @@ final class DMSearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden =  true
         
         viewModel.setDelegate(self)
         setupView()
@@ -61,6 +62,7 @@ final class DMSearchResultViewController: UIViewController {
     private func bind() {
         customView.titleLabel.text = self.viewModel.title
         customView.pronunciationLabel.text = self.viewModel.phonetic
+        customView.definitionLabel.attributedText = self.viewModel.definition
         customView.titleBottomLabel.text = self.viewModel.titleBottom
         
         let gestureAudio = UITapGestureRecognizer(target: self, action:  #selector(onClickAudio(_:)))
@@ -68,9 +70,6 @@ final class DMSearchResultViewController: UIViewController {
         
         let gestureButton = UITapGestureRecognizer(target: self, action:  #selector(onClickSearchButton(_:)))
         customView.newSearchButton.addGestureRecognizer(gestureButton)
-        
-        customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
-        customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
     }
     
     private func finishAudioLoading() {

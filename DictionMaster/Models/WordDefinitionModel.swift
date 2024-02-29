@@ -11,13 +11,13 @@ struct WordDefinitionModel {
     let title: String
     let phonetic: String
     let audio: String?
-    let item: [MeaningDefinition]
+    let definition: NSMutableAttributedString
     
-    init(title: String, phonetic: String, audio: String?, item: [MeaningDefinition]) {
+    init(title: String, phonetic: String, audio: String?, definition: NSMutableAttributedString) {
         self.title = title
         self.phonetic = phonetic
         self.audio = audio
-        self.item = item
+        self.definition = definition
     }
 }
 

@@ -22,7 +22,6 @@
 		9DAC44FB2B751B8C003C5A02 /* DMSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44FA2B751B8C003C5A02 /* DMSearchResultViewController.swift */; };
 		9DAC44FF2B751BFB003C5A02 /* DMSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC44FE2B751BFB003C5A02 /* DMSearchResultView.swift */; };
 		9DAC45012B751C16003C5A02 /* DMSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC45002B751C16003C5A02 /* DMSearchResultViewModel.swift */; };
-		9DAC45042B752FB8003C5A02 /* DMSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC45032B752FB8003C5A02 /* DMSearchResultTableViewCell.swift */; };
 		9DD21B512B73C47600924998 /* DMSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B502B73C47600924998 /* DMSearchViewModel.swift */; };
 		9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */; };
 		9DD21B5A2B73E47E00924998 /* DMPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B592B73E47E00924998 /* DMPurchaseView.swift */; };
@@ -85,7 +84,6 @@
 		9DAC44FA2B751B8C003C5A02 /* DMSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultViewController.swift; sourceTree = "<group>"; };
 		9DAC44FE2B751BFB003C5A02 /* DMSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultView.swift; sourceTree = "<group>"; };
 		9DAC45002B751C16003C5A02 /* DMSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultViewModel.swift; sourceTree = "<group>"; };
-		9DAC45032B752FB8003C5A02 /* DMSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		9DD21B502B73C47600924998 /* DMSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSearchViewModel.swift; sourceTree = "<group>"; };
 		9DD21B562B73E45200924998 /* DMPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseViewController.swift; sourceTree = "<group>"; };
 		9DD21B592B73E47E00924998 /* DMPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMPurchaseView.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				9DAC44FE2B751BFB003C5A02 /* DMSearchResultView.swift */,
-				9DAC45022B752F89003C5A02 /* Cells */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -221,14 +218,6 @@
 				9DAC45002B751C16003C5A02 /* DMSearchResultViewModel.swift */,
 			);
 			path = SearchResult;
-			sourceTree = "<group>";
-		};
-		9DAC45022B752F89003C5A02 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				9DAC45032B752FB8003C5A02 /* DMSearchResultTableViewCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		9DD21B522B73E3D900924998 /* Search */ = {
@@ -527,7 +516,6 @@
 				9DAC44F62B750E1F003C5A02 /* ErrorNotFoundModel.swift in Sources */,
 				9DAC45012B751C16003C5A02 /* DMSearchResultViewModel.swift in Sources */,
 				9DD21B652B743B2D00924998 /* DictionaryModel.swift in Sources */,
-				9DAC45042B752FB8003C5A02 /* DMSearchResultTableViewCell.swift in Sources */,
 				9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */,
 				9DAC44FF2B751BFB003C5A02 /* DMSearchResultView.swift in Sources */,
 				9DD21B6D2B74521A00924998 /* DMServiceManager.swift in Sources */,

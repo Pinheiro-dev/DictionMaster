@@ -10,6 +10,13 @@ import UIKit
 
 final class DMSearchResultView: UIView {
     
+    let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.showsVerticalScrollIndicator = false
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        return scroll
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "-"
@@ -34,15 +41,13 @@ final class DMSearchResultView: UIView {
         return view
     }()
     
-    let tableView: UITableView = {
-        let table = UITableView()
-        table.register(DMSearchResultTableViewCell.self,
-                       forCellReuseIdentifier: DMSearchResultTableViewCell.cellIdentifier)
-        table.separatorStyle = .none
-        table.showsVerticalScrollIndicator = false
-        table.backgroundColor = .white
-        table.translatesAutoresizingMaskIntoConstraints = false
-        return table
+    let definitionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = Color().primaryColor
+        label.numberOfLines = 0
+        label.font = .SFProRounded(.bold, size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private var separatorView: UIView = {
@@ -98,10 +103,11 @@ final class DMSearchResultView: UIView {
     }
 
     private func setupViews() {
-        addSubviews(titleLabel,
+        addSubview(scrollView)
+        scrollView.addSubviews(titleLabel,
                     buttonSpeaker,
                     pronunciationLabel,
-                    tableView,
+                    definitionLabel,
                     separatorView,
                     bottomView)
         
@@ -112,7 +118,13 @@ final class DMSearchResultView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 48),
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
             titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
             
@@ -125,13 +137,13 @@ final class DMSearchResultView: UIView {
             pronunciationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
             pronunciationLabel.centerYAnchor.constraint(equalTo: buttonSpeaker.centerYAnchor),
             
-            tableView.topAnchor.constraint(equalTo: buttonSpeaker.bottomAnchor, constant: 25),
-            tableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
-            tableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
-            tableView.bottomAnchor.constraint(equalTo: separatorView.topAnchor),
+            definitionLabel.topAnchor.constraint(equalTo: buttonSpeaker.bottomAnchor, constant: 25),
+            definitionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.5),
+            definitionLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -43.5),
+            definitionLabel.bottomAnchor.constraint(equalTo: separatorView.topAnchor),
             
             separatorView.heightAnchor.constraint(equalToConstant: 1),
-            separatorView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            separatorView.topAnchor.constraint(equalTo: definitionLabel.bottomAnchor),
             separatorView.leftAnchor.constraint(equalTo: leftAnchor),
             separatorView.rightAnchor.constraint(equalTo: rightAnchor),
             separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
@@ -139,7 +151,7 @@ final class DMSearchResultView: UIView {
             bottomView.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
             bottomView.leftAnchor.constraint(equalTo: leftAnchor),
             bottomView.rightAnchor.constraint(equalTo: rightAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            bottomView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             
             titleBottomLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 35.5),
             titleBottomLabel.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20.5),

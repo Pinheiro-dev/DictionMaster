@@ -10,18 +10,19 @@ import UIKit
 import AVFoundation
 
 protocol DMSearchResultViewModelDelegate: AnyObject {
-    func getInstance() -> NSObject
     func setDelegate(_ delegate: DMSearchResultViewControllerDelegate?)
     func playAudio()
     var title: String? { get }
     var titleBottom: String? { get }
     var phonetic: String? { get }
+    var definition: NSMutableAttributedString? {get}
 }
 
 final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     var title: String?
     var titleBottom: String?
     var phonetic: String?
+    var definition: NSMutableAttributedString?
     
     var audio: String?
     private var player: AVAudioPlayer?
@@ -42,10 +43,36 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private func setUpDelegateVariables() {
         self.title = resultFormatted?.title.capitalized
         self.phonetic = resultFormatted?.phonetic
+        self.definition = resultFormatted?.definition
         self.audio = resultFormatted?.audio
         
         guard let title = title else { return }
         self.titleBottom = Localized().searchResult.thatsIt(with: title.lowercased())
+    }
+    
+    private func getFormattedDefinitions(definitions: [MeaningDefinition]) -> NSMutableAttributedString {
+        let definition = NSMutableAttributedString(string: "")
+        for (index, item) in definitions.enumerated() {
+            let brakeLine = index < definitions.endIndex ? "\n\n" : ""
+            var examples: String
+            if (item.examples.isEmpty) {
+                examples = item.examples + brakeLine
+            } else {
+                examples = "\n\n" + item.examples + brakeLine
+            }
+            
+            let attributedText = NSAttributedString(
+                string: examples,
+                attributes: [
+                    NSAttributedString.Key.foregroundColor: Color().primaryColor,
+                    NSAttributedString.Key.font: UIFont.SFProRounded(size: 16)
+                ]
+            )
+            definition.append(item.definition)
+            definition.append(attributedText)
+        }
+        
+        return definition
     }
     
     private func getFomattedDefinition(partOfSpeech: String, definition: String, index: Int) -> NSMutableAttributedString {
@@ -90,11 +117,13 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             return MeaningDefinition(definition: definition,
                                      examples: examples)
         })
+
+        let definitions = getFormattedDefinitions(definitions: item)
         
         let model = WordDefinitionModel(title: title,
                                         phonetic: phonetic,
                                         audio: audio,
-                                        item: item)
+                                        definition: definitions)
 
         return model
     }
@@ -116,11 +145,6 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
     
     //MARK: - Actions
-    
-    func getInstance() -> NSObject {
-        return self
-    }
-    
     func setDelegate(_ delegate: DMSearchResultViewControllerDelegate?) {
         self.delegate = delegate
     }
@@ -142,31 +166,4 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         }
     }
     
-}
-
-//MARK: - TableViewDelegate e TableViewDataSource
-
-extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultFormatted?.item.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = resultFormatted,
-              let cell = tableView.dequeueReusableCell(withIdentifier: DMSearchResultTableViewCell.cellIdentifier,
-                                                       for: indexPath) as? DMSearchResultTableViewCell
-        else {
-            return UITableViewCell()
-        }
-        
-        let item = data.item[indexPath.row]
-
-        cell.definitionLabel.attributedText = item.definition
-        cell.examplesLabel.text = item.examples
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
 }
