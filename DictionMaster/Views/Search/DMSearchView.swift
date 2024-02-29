@@ -65,10 +65,10 @@ final class DMSearchView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            pill.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 75),
+            pill.topAnchor.constraint(equalTo: topAnchor, constant: 75),
             pill.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            textField.topAnchor.constraint(equalTo: pill.bottomAnchor, constant: 174),
+            textField.topAnchor.constraint(equalTo: pill.bottomAnchor, constant: 181),
             textField.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             textField.centerXAnchor.constraint(equalTo: centerXAnchor),
