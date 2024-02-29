@@ -101,6 +101,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
     private func playSound(url: URL) {
         do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
             try AVAudioSession.sharedInstance().setActive(true)
             player = try AVAudioPlayer(contentsOf: url)
             player?.prepareToPlay()
