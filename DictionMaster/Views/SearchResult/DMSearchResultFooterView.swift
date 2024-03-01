@@ -39,7 +39,6 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     let titleBottomLabel: UILabel = {
         let label = UILabel()
         label.text = "Teste"
-        label.numberOfLines = 0
         label.textColor = Color().primaryColor
         label.font = .SFProRounded(.bold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +104,6 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
             separatorView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
             separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
 
-            bottomView.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
             bottomView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             bottomView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
             bottomView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
@@ -113,13 +111,14 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
             titleBottomLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 35.5),
             titleBottomLabel.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20.5),
             titleBottomLabel.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -43.5),
+            titleBottomLabel.bottomAnchor.constraint(equalTo: descriptioBottomLabel.topAnchor, constant: -8),
 
-            descriptioBottomLabel.topAnchor.constraint(equalTo: titleBottomLabel.bottomAnchor, constant: 8),
+
             descriptioBottomLabel.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20.5),
             descriptioBottomLabel.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -43.5),
+            descriptioBottomLabel.bottomAnchor.constraint(equalTo: newSearchButton.topAnchor, constant: -20),
 
             newSearchButton.heightAnchor.constraint(equalToConstant: 64),
-            newSearchButton.topAnchor.constraint(equalTo: descriptioBottomLabel.bottomAnchor, constant: 20),
             newSearchButton.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 17),
             newSearchButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -16),
             newSearchButton.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -31),

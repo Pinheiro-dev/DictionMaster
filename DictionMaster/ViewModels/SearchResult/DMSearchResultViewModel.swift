@@ -222,7 +222,7 @@ extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 240
+        return 214.5
     }
 
 }

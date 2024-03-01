@@ -83,6 +83,7 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
             containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -43.5),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
+            titleLabel.heightAnchor.constraint(equalToConstant: 54),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
