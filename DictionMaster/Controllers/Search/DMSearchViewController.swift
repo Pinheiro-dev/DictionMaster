@@ -59,12 +59,7 @@ final class DMSearchViewController: UIViewController {
         guard let isEmpty = textField.text?.isEmpty else {
             return customView.searchButton.isHidden = true
         }
-        
-        if isEmpty {
-            customView.searchButton.isHidden = true
-        } else {
-            customView.searchButton.isHidden = false
-        }
+        customView.searchButton.isHidden = isEmpty
     }
     
     @objc private func onClick(_ sender: UIButton) {
