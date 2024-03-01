@@ -1,5 +1,5 @@
 //
-//  DMServiceManager.swift
+//  DMContentService.swift
 //  MatheusPinheiroBarbosa
 //
 //  Created by Matheus on 07/02/24.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol DMServiceManagerProtocol: AnyObject {
+protocol DMContentServiceProtocol: AnyObject {
     func getDictionayWord(param: String,
                           completion: @escaping (Result<[DictionaryModel], Error>) -> Void)
     func downloadAudio(with url: URL,
                        completion: @escaping (Result<URL, Error>) -> Void)
 }
 
-final class DMServiceManager: DMServiceManagerProtocol {
+final class DMContentService: DMContentServiceProtocol {
     
     func getDictionayWord(param: String,
                           completion: @escaping (Result<[DictionaryModel], Error>) -> Void) {

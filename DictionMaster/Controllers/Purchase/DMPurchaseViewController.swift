@@ -21,7 +21,7 @@ final class DMPurchaseViewController: UIViewController {
     }
     
     @objc private func onClick(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.pop()
     }
 
     private func setupView() {
@@ -38,8 +38,7 @@ final class DMPurchaseViewController: UIViewController {
     }
     
     private func bind() {
-        customView.subscribeButton.addTarget(self,
-                                             action: #selector(onClick(_:)),
-                                             for: .touchUpInside)
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClick(_:)))
+        customView.subscribeButton.addGestureRecognizer(gesture)
     }
 }

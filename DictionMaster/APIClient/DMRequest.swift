@@ -14,22 +14,20 @@ final class DMRequest {
     private struct Constants {
         static let baseURL = "https://api.dictionaryapi.dev"
     }
+    
+    /// Constructed url fot the api request in string format
+    private var urlString: String {
+        var string = Constants.baseURL
+        switch endpoint {
+            default: string += "/api/v2/entries/en/\(param)"
+        }
+        return string
+    }
 
     /// Desired endpoint
     let endpoint: DMEndpoint
     /// Parameter for API
     public var param: String
-
-    /// Constructed url fot the api request in string format
-    private var urlString: String {
-        var string = Constants.baseURL
-        switch endpoint {
-            default:
-                string += "/api/v2/entries/en/\(param)"
-        }
-
-        return string
-    }
 
     /// Computed & constructed API url
     public var url: URL? {

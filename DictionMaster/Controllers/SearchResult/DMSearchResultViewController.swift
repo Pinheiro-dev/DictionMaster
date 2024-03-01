@@ -10,6 +10,7 @@ import UIKit
 
 protocol DMSearchResultViewControllerDelegate: AnyObject {
     func didAudioFailed(errorTitle: String, errorMessage: String)
+    func pop()
 }
 
 final class DMSearchResultViewController: UIViewController {
@@ -28,19 +29,12 @@ final class DMSearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden =  true
         
         viewModel.setDelegate(self)
         setupView()
         addConstraints()
         bind()
-    }
-    
-    @objc private func onClickSearchButton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc private func onClickAudio(_ sender: UIButton) {
-        self.viewModel.playAudio()
     }
 
     private func setupView() {
@@ -57,23 +51,21 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     private func bind() {
-        customView.titleLabel.text = self.viewModel.title
-        customView.pronunciationLabel.text = self.viewModel.phonetic
-        customView.titleBottomLabel.text = self.viewModel.titleBottom
-        
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClickAudio(_:)))
-        customView.audioView.addGestureRecognizer(gesture)
-        customView.newSearchButton.addTarget(self, action: #selector(onClickSearchButton(_:)), for: .touchUpInside)
-        
-        customView.tableView.delegate = (self.viewModel.getInstance() as! any UITableViewDelegate)
-        customView.tableView.dataSource = (self.viewModel.getInstance() as! any UITableViewDataSource)
+        customView.tableView.delegate = viewModel.getInstance()
+        customView.tableView.dataSource = viewModel.getInstance()
     }
 }
 
 //MARK: - SearchResultViewController Delegate
 
 extension DMSearchResultViewController: DMSearchResultViewControllerDelegate {
+    func pop() {
+        navigationController?.pop()
+    }
+    
     func didAudioFailed(errorTitle: String, errorMessage: String) {
-        self.showAlertMessage(title: errorTitle, message: errorMessage)
+        DispatchQueue.main.async {
+            self.showAlertMessage(title: errorTitle, message: errorMessage)
+        }
     }
 }

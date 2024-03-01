@@ -4,7 +4,7 @@
 //
 //  Created by Matheus on 06/02/24.
 //
-
+import Foundation
 import UIKit
 
 protocol DMSearchViewControllerDelegate: AnyObject {
@@ -16,14 +16,17 @@ protocol DMSearchViewControllerDelegate: AnyObject {
 final class DMSearchViewController: UIViewController {
     private let customView = DMSearchView()
     private let viewModel: DMSearchViewModelDelegate = DMSearchViewModel()
+    private var buttomConstant: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow(notification:)),
-                                               name: UIResponder.keyboardWillShowNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
         
         viewModel.setDelegate(self)
         setupView()
@@ -42,26 +45,26 @@ final class DMSearchViewController: UIViewController {
     }
         
     @objc private func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.customView.bottomButtonConstraint.constant = -(keyboardSize.height + 20)
+        guard let constant = buttomConstant else {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                buttomConstant = -(keyboardSize.height + 20)
+                customView.bottomButtonConstraint.constant = -(keyboardSize.height + 20)
+            }
+            return
         }
+        buttomConstant = constant
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
         guard let isEmpty = textField.text?.isEmpty else {
-            return self.customView.searchButton.isHidden = true
+            return customView.searchButton.isHidden = true
         }
-        
-        if isEmpty {
-            self.customView.searchButton.isHidden = true
-        } else {
-            self.customView.searchButton.isHidden = false
-        }
+        customView.searchButton.isHidden = isEmpty
     }
     
     @objc private func onClick(_ sender: UIButton) {
         guard let word = self.customView.textField.text else { return }
-        self.search(word: word)
+        search(word: word)
     }
 
     private func setupView() {
@@ -83,22 +86,19 @@ final class DMSearchViewController: UIViewController {
                                        for: .editingChanged)
         customView.textField.delegate = self
         
-        customView.searchButton.addTarget(self, 
-                                          action: #selector(onClick(_:)),
-                                          for: .touchUpInside)
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(onClick(_:)))
+        customView.searchButton.addGestureRecognizer(gesture)
     }
     
     private func finishSearch() {
-        customView.spinner.stopAnimating()
-        customView.searchButton.enable(true)
+        customView.searchButton.setLoading(true)
         customView.textField.text = ""
         textFieldDidChange(customView.textField)
     }
     
     private func search(word: String) {
-        customView.spinner.startAnimating()
-        customView.searchButton.enable(false)
-        self.viewModel.fetchSearch(with: word)
+        customView.searchButton.setLoading(false)
+        viewModel.fetchSearch(with: word)
     }
     
 }
@@ -109,12 +109,12 @@ extension DMSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let word = textField.text,
               !word.isEmpty,
-              customView.searchButton.isEnabled else {
+              customView.searchButton.isUserInteractionEnabled else {
             return true
         }
         
-        self.customView.searchButton.enable(false)
-        self.search(word: word)
+        customView.searchButton.setLoading(false)
+        search(word: word)
         return true;
     }
 }
@@ -123,23 +123,23 @@ extension DMSearchViewController: UITextFieldDelegate {
 
 extension DMSearchViewController: DMSearchViewControllerDelegate {
     func didSearchFailed(errorTitle: String, errorMessage: String) {
-        self.finishSearch()
-        self.showAlertMessage(title: errorTitle, message: errorMessage)
+        finishSearch()
+        showAlertMessage(title: errorTitle, message: errorMessage)
     }
     
     func didSearch(with dictionary: [DictionaryModel]) {
         customView.textField.resignFirstResponder()
-        self.finishSearch()        
+        finishSearch()
         let vc = DMSearchResultViewController(dictionary: dictionary)
         vc.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.push(viewController: vc)
     }
     
     func goToPurchase() {
         customView.textField.resignFirstResponder()
-        self.finishSearch()
+        finishSearch()
         let vc = DMPurchaseViewController()
         vc.navigationItem.hidesBackButton = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.push(viewController: vc)
     }
 }

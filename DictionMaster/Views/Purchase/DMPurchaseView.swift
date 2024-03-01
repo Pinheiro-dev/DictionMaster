@@ -8,10 +8,9 @@
 import UIKit
 
 final class DMPurchaseView: UIView {
-    
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().personPhoto
+        let image = Image.personPhoto
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +19,7 @@ final class DMPurchaseView: UIView {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().logoIcon
+        let image = Image.logoIcon
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -28,54 +27,66 @@ final class DMPurchaseView: UIView {
     
     private let titleImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().titleImg
+        let image = Image.titleImg
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private let infoLabel: UILabel = {
+    private lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = Color().primaryColor
-        label.font = .SFProRounded(.bold, size: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Color.primaryColor
         
-        let fullString = Localized().purchase.limitExceeded
+        var fontSize: CGFloat = 20
+        if (isSmallDevice) {
+            fontSize = 18
+        }
+        
+        label.font = .SFProRounded(.bold, size: fontSize)
+        let fullString = Localized.PurchaseString.limitExceeded
         label.attributedText = fullString.attributedString(
-            subStr: Localized().purchase.unlimited, Localized().purchase.allFeatures,
-            font: .SFProRounded(.bold, size: 20),
-            color: Color().secondayColor
+            subStr: Localized.PurchaseString.unlimited, Localized.PurchaseString.allFeatures,
+            font: .SFProRounded(.bold, size: fontSize),
+            color: Color.secondayColor
         )
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let priceLabel: UILabel = {
+    private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = Color().primaryColor
-        label.font = .SFProRounded(size: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Color.primaryColor
         
-        let fullString = Localized().purchase.pricePurchaseLabel
+        var fontSize: CGFloat = 16
+        if (isSmallDevice) {
+            fontSize = 14
+        }
+        
+        label.font = .SFProRounded(size: fontSize)
+        let fullString = Localized.PurchaseString.pricePurchaseLabel
         label.attributedText = fullString.attributedString(
-            subStr: Localized().purchase.trySevenDays, Localized().purchase.pricePurchaseValue,
-            font: .SFProRounded(.bold, size: 16),
-            color: Color().primaryColor
+            subStr: Localized.PurchaseString.trySevenDays, Localized.PurchaseString.pricePurchaseValue,
+            font: .SFProRounded(.bold, size: fontSize),
+            color: Color.primaryColor
         )
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let subscribeButton: DMButton = {
-        let button = DMButton(title: Localized().purchase.subscribe)
+        let button = DMButton(title: Localized.PurchaseString.subscribe)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    let isSmallDevice = UIScreen.main.bounds.size.height <= 667 // iPhone SE size
     
     // MARK: - Init
     
@@ -102,36 +113,55 @@ final class DMPurchaseView: UIView {
     
     private func addConstraints() {
         let logoImgHeight: CGFloat = 130 // 78(height XD) + 52(height image shadow)
-        NSLayoutConstraint.activate([
-            personImageView.topAnchor.constraint(equalTo: topAnchor),
-            personImageView.leftAnchor.constraint(equalTo: leftAnchor),
-            personImageView.rightAnchor.constraint(equalTo: rightAnchor),
-            personImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 39),
-            
-            logoImageView.heightAnchor.constraint(equalToConstant: logoImgHeight),
-            logoImageView.widthAnchor.constraint(equalToConstant: logoImgHeight),
-            logoImageView.topAnchor.constraint(equalTo: personImageView.bottomAnchor,
-                                               constant: -(logoImgHeight / 2)),
-            logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            titleImageView.heightAnchor.constraint(equalToConstant: 32),
-            titleImageView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: -17.85),
-            titleImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            infoLabel.heightAnchor.constraint(equalToConstant: 79),
-            infoLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 26),
-            infoLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
-            infoLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
-            
-            priceLabel.heightAnchor.constraint(equalToConstant: 42),
-            priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
-            priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
-            priceLabel.bottomAnchor.constraint(equalTo: subscribeButton.topAnchor, constant: -16),
-            
-            subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
-            subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
-            subscribeButton.heightAnchor.constraint(equalToConstant: 64),
-            subscribeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        ])
+        var infoLabelTopConstant: CGFloat = 26
+        if isSmallDevice {
+            infoLabelTopConstant = 10
+        }
+        
+        NSLayoutConstraint.activate(
+            [
+                personImageView.topAnchor.constraint(equalTo: topAnchor),
+                personImageView.leftAnchor.constraint(equalTo: leftAnchor),
+                personImageView.rightAnchor.constraint(equalTo: rightAnchor),
+                personImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 39),
+                
+                logoImageView.heightAnchor.constraint(equalToConstant: logoImgHeight),
+                logoImageView.widthAnchor.constraint(equalToConstant: logoImgHeight),
+                logoImageView.topAnchor.constraint(
+                    equalTo: personImageView.bottomAnchor,
+                    constant: -(logoImgHeight / 2)
+                ),
+                logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                titleImageView.heightAnchor.constraint(equalToConstant: 32),
+                titleImageView.topAnchor.constraint(
+                    equalTo: logoImageView.bottomAnchor,
+                    constant: -17.85
+                ),
+                titleImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                infoLabel.topAnchor.constraint(
+                    equalTo: titleImageView.bottomAnchor,
+                    constant: infoLabelTopConstant
+                ),
+                infoLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
+                infoLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
+                
+                priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
+                priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
+                priceLabel.bottomAnchor.constraint(
+                    equalTo: subscribeButton.topAnchor,
+                    constant: -16
+                ),
+                
+                subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
+                subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
+                subscribeButton.heightAnchor.constraint(equalToConstant: 64),
+                subscribeButton.bottomAnchor.constraint(
+                    equalTo: safeAreaLayoutGuide.bottomAnchor,
+                    constant: -36
+                )
+            ]
+        )
     }
 }

@@ -11,7 +11,7 @@ final class DMUserDefaultsManager {
     static let shared = DMUserDefaultsManager()
     private var userDefaults = UserDefaults.standard
     private let currentDate: Date
-    private let keys = Localized().userDefaults
+    private let keys = Localized.UserDefaultsKeys.self
     
     //MARK: - init
     private init() {
@@ -21,11 +21,9 @@ final class DMUserDefaultsManager {
     public func isValidSearh(with string: String) -> Bool {
         guard let dateObject = userDefaults.object(forKey: keys.DATE) else {
             setDate()
-            setCountSearch()
-            setWord(string)
             return true
         }
-                
+        
         let date = dateObject as! Date
         let day = date.get(.day)
         let month = date.get(.month)
@@ -33,19 +31,26 @@ final class DMUserDefaultsManager {
         let currentDay = currentDate.get(.day)
         let currentMonth = currentDate.get(.month)
         
-        if ((day == currentDay) && (month == currentMonth)) {
-            self.addCountSearch()
-        } else {
-            self.resetUserDefaults()
+        if !((day == currentDay) && (month == currentMonth)) {
+            resetUserDefaults()
         }
         
         if (userDefaults.object(forKey: string.uppercased()) == nil) {
-            setWord(string)
             let count = userDefaults.integer(forKey: keys.COUNT_SEARCH)
-            return count < 5
+            if (count > 4) {
+                return false
+            }
         }
         
         return true
+    }
+    
+    public func configSearch(word: String) {
+        if userDefaults.object(forKey: keys.COUNT_SEARCH) == nil {
+            setCountSearch()
+        }
+        addCountSearch()
+        setWord(word.uppercased())
     }
     
     //MARK: - private funcs
@@ -75,9 +80,7 @@ final class DMUserDefaultsManager {
         let domain = Bundle.main.bundleIdentifier!
         userDefaults.removePersistentDomain(forName: domain)
         userDefaults.synchronize()
-        self.setDate()
-        self.setCountSearch()
+        setDate()
+        setCountSearch()
     }
-    
 }
-

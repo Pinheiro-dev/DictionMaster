@@ -15,25 +15,30 @@ protocol DMSearchViewModelDelegate: AnyObject {
 
 final class DMSearchViewModel: DMSearchViewModelDelegate {
     private weak var delegate: DMSearchViewControllerDelegate?
-    private let api: DMServiceManagerProtocol = DMServiceManager()
-    private let userDefaults = DMUserDefaultsManager.shared
+    private let api: DMContentServiceProtocol = DMContentService()
     
     private func showError(with error: Error) {
         guard let error = error as? DMServiceError else {
-            self.delegate?.didSearchFailed(errorTitle: Localized().error.genericTitleSearch,
-                                           errorMessage: Localized().error.genericMessageSearch)
+            delegate?.didSearchFailed(
+                errorTitle: Localized.ErrorString.genericTitleSearch,
+                errorMessage: Localized.ErrorString.genericMessageSearch
+            )
             return
         }
         
         switch error {
         case .notFoundWith(let notFoundModel):
-            self.delegate?.didSearchFailed(errorTitle: notFoundModel?.title ??  Localized().error.genericTitleSearch,
-                                           errorMessage: notFoundModel?.message ?? Localized().error.genericMessageSearch)
+            delegate?.didSearchFailed(
+                errorTitle: notFoundModel?.title ??  Localized.ErrorString.genericTitleSearch,
+                errorMessage: notFoundModel?.message ?? Localized.ErrorString.genericMessageSearch
+            )
         case .searchLimitExceeded:
-            self.delegate?.goToPurchase()
+            delegate?.goToPurchase()
         default:
-            self.delegate?.didSearchFailed(errorTitle:  Localized().error.genericTitleSearch,
-                                           errorMessage: Localized().error.genericMessageSearch)
+            delegate?.didSearchFailed(
+                errorTitle:  Localized.ErrorString.genericTitleSearch,
+                errorMessage: Localized.ErrorString.genericMessageSearch
+            )
         }
     }
     

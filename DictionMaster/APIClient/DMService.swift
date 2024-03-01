@@ -79,6 +79,7 @@ final class DMService {
             do {
                 let result = try JSONDecoder().decode(T.self, from: data)
                 self?.cacheManager.setCache(for: request.url, data: data)
+                self?.userDefaults.configSearch(word: request.param)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
@@ -109,6 +110,7 @@ final class DMService {
         guard let url = rmRequest.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = rmRequest.httpMethod.rawValue
+        request.timeoutInterval = 60
 
         return request
     }
