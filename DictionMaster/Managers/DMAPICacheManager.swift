@@ -22,7 +22,6 @@ final class DMAPICacheManager {
     }
     
     public func setCache(for url: URL?, data: Data) {
-        print("Teste1: ", url)
         guard let url = url else {
             return
         }
