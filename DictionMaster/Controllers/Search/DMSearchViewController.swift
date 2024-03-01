@@ -23,7 +23,7 @@ final class DMSearchViewController: UIViewController {
         view.backgroundColor = .white
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow(notification:)),
-                                               name: UIResponder.keyboardDidShowNotification,
+                                               name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         
         viewModel.setDelegate(self)
