@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-struct Color {
-    let primaryColor = UIColor(hexString: "#052D39")
-    let secondayColor = UIColor(hexString: "#5BD6FD")
-    let backgroundPill = UIColor(hexString: "#91A9B1")
+enum Color {
+    static let primaryColor = UIColor(hexString: "#052D39")
+    static let secondayColor = UIColor(hexString: "#5BD6FD")
+    static let backgroundPill = UIColor(hexString: "#91A9B1")
 }

@@ -45,7 +45,7 @@ final class DMButton: UIView {
     
     private func config() {
         roundCorners(radius: 14)
-        backgroundColor = Color().secondayColor
+        backgroundColor = Color.secondayColor
         isUserInteractionEnabled = true
         layer.masksToBounds = true
         translatesAutoresizingMaskIntoConstraints = false

@@ -11,14 +11,14 @@ final class DMPill: UIView {
     
     private let viewPill: UIView = {
         let view = UIView()
-        view.backgroundColor = Color().backgroundPill.withAlphaComponent(0.10)
+        view.backgroundColor = Color.backgroundPill.withAlphaComponent(0.10)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().englandFlag
+        let image = Image.englandFlag
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -26,8 +26,8 @@ final class DMPill: UIView {
     
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.text = Localized().search.english
-        label.textColor = Color().primaryColor
+        label.text = Localized.SearchString.english
+        label.textColor = Color.primaryColor
         label.font = .SFProRounded(size: 18)
         label.addCharacterSpacing(kernValue: 1.8)
         label.translatesAutoresizingMaskIntoConstraints = false

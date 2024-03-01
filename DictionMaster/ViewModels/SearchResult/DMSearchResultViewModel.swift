@@ -51,7 +51,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         let fullString = "\(index.description))" + speechString + definition
         let attributedString = fullString.attributedString(subStr: speechString,
                                                            font: .SFProRounded(.bold, size: 16),
-                                                           color: Color().primaryColor.withAlphaComponent(0.50))
+                                                           color: Color.primaryColor.withAlphaComponent(0.50))
         return attributedString
     }
     
@@ -106,8 +106,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             player?.volume = 1.0
             player?.play()
         } catch {
-            self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
-                                          errorMessage: Localized().error.genericMessage)
+            self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+                                          errorMessage: Localized.ErrorString.genericMessage)
         }
         self.headerDelegate?.stopLoading()
     }
@@ -129,8 +129,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
     func playAudio() {
         guard let audio = audio, let url = URL(string: audio) else {
-            self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
-                                          errorMessage: Localized().error.genericMessage)
+            self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+                                          errorMessage: Localized.ErrorString.genericMessage)
             self.headerDelegate?.stopLoading()
             return
         }
@@ -139,8 +139,8 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             case .success(let urlAudio):
                 self.playSound(url: urlAudio)
             case .failure(_):
-                self.delegate?.didAudioFailed(errorTitle: Localized().error.genericTitleAudio,
-                                              errorMessage: Localized().error.genericMessage)
+                self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+                                              errorMessage: Localized.ErrorString.genericMessage)
                 self.headerDelegate?.stopLoading()
             }
         }
@@ -215,7 +215,7 @@ extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
         }
         
         footer.setDelegate(delegate: self)
-        footer.titleBottomLabel.text = Localized().searchResult.thatsIt(with: data.title.lowercased())
+        footer.titleBottomLabel.text = Localized.SearchResultString.thatsIt(with: data.title.lowercased())
         return footer
     }
     

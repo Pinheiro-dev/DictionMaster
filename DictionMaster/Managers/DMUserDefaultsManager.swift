@@ -11,7 +11,7 @@ final class DMUserDefaultsManager {
     static let shared = DMUserDefaultsManager()
     private var userDefaults = UserDefaults.standard
     private let currentDate: Date
-    private let keys = Localized().userDefaults
+    private let keys = Localized.UserDefaultsKeys.self
     
     //MARK: - init
     private init() {

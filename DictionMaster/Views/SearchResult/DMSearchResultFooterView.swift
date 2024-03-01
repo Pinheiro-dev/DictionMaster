@@ -20,7 +20,7 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     
     private var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = Color().primaryColor.withAlphaComponent(0.10)
+        view.backgroundColor = Color.primaryColor.withAlphaComponent(0.10)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,8 +34,8 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     
     let titleBottomLabel: UILabel = {
         let label = UILabel()
-        label.text = "Teste"
-        label.textColor = Color().primaryColor
+        label.text = ""
+        label.textColor = Color.primaryColor
         label.font = .SFProRounded(.bold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -43,15 +43,15 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     
     private let descriptioBottomLabel: UILabel = {
         let label = UILabel()
-        label.text = Localized().searchResult.tryAnotherSearch
-        label.textColor = Color().primaryColor
+        label.text = Localized.SearchResultString.tryAnotherSearch
+        label.textColor = Color.primaryColor
         label.font = .SFProRounded(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let newSearchButton: DMButton = {
-        let button = DMButton(title: Localized().searchResult.newSearch)
+        let button = DMButton(title: Localized.SearchResultString.newSearch)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

@@ -12,7 +12,7 @@ final class DMPurchaseView: UIView {
     
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().personPhoto
+        let image = Image.personPhoto
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +21,7 @@ final class DMPurchaseView: UIView {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().logoIcon
+        let image = Image.logoIcon
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -29,7 +29,7 @@ final class DMPurchaseView: UIView {
     
     private let titleImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().titleImg
+        let image = Image.titleImg
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ final class DMPurchaseView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = Color().primaryColor
+        label.textColor = Color.primaryColor
         
         var fontSize: CGFloat = 20
         if (isSmallDevice) {
@@ -49,11 +49,11 @@ final class DMPurchaseView: UIView {
         }
         
         label.font = .SFProRounded(.bold, size: fontSize)
-        let fullString = Localized().purchase.limitExceeded
+        let fullString = Localized.PurchaseString.limitExceeded
         label.attributedText = fullString.attributedString(
-            subStr: Localized().purchase.unlimited, Localized().purchase.allFeatures,
+            subStr: Localized.PurchaseString.unlimited, Localized.PurchaseString.allFeatures,
             font: .SFProRounded(.bold, size: fontSize),
-            color: Color().secondayColor
+            color: Color.secondayColor
         )
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,7 +64,7 @@ final class DMPurchaseView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = Color().primaryColor
+        label.textColor = Color.primaryColor
         
         var fontSize: CGFloat = 16
         if (isSmallDevice) {
@@ -72,18 +72,18 @@ final class DMPurchaseView: UIView {
         }
         
         label.font = .SFProRounded(size: fontSize)
-        let fullString = Localized().purchase.pricePurchaseLabel
+        let fullString = Localized.PurchaseString.pricePurchaseLabel
         label.attributedText = fullString.attributedString(
-            subStr: Localized().purchase.trySevenDays, Localized().purchase.pricePurchaseValue,
+            subStr: Localized.PurchaseString.trySevenDays, Localized.PurchaseString.pricePurchaseValue,
             font: .SFProRounded(.bold, size: fontSize),
-            color: Color().primaryColor
+            color: Color.primaryColor
         )
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let subscribeButton: DMButton = {
-        let button = DMButton(title: Localized().purchase.subscribe)
+        let button = DMButton(title: Localized.PurchaseString.subscribe)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

@@ -25,7 +25,7 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "-"
-        label.textColor = Color().primaryColor
+        label.textColor = Color.primaryColor
         label.font = .SFProRounded(.bold, size: 45)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,7 +34,7 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
     let pronunciationLabel: UILabel = {
         let label = UILabel()
         label.text = "-"
-        label.textColor = Color().primaryColor.withAlphaComponent(0.40)
+        label.textColor = Color.primaryColor.withAlphaComponent(0.40)
         label.font = .SFProRounded(.bold, size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

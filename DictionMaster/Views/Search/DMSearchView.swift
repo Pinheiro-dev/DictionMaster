@@ -17,7 +17,7 @@ final class DMSearchView: UIView {
 
      let textField: UITextField = {
          let field = UITextField()
-         field.textColor = Color().primaryColor
+         field.textColor = Color.primaryColor
          field.tintColor = .clear
          field.font = .SFProRounded(.bold, size: 32)
          field.textAlignment = .center
@@ -25,9 +25,9 @@ final class DMSearchView: UIView {
          field.spellCheckingType = .no
          
          let attributedString = NSAttributedString(
-            string: Localized().search.typeAWord,
+            string: Localized.SearchString.typeAWord,
             attributes: [
-                NSAttributedString.Key.foregroundColor: Color().primaryColor.withAlphaComponent(0.5),
+                NSAttributedString.Key.foregroundColor: Color.primaryColor.withAlphaComponent(0.5),
                 NSAttributedString.Key.font: UIFont.SFProRounded(size: 32)
             ]
         )
@@ -37,7 +37,7 @@ final class DMSearchView: UIView {
     }()
     
     let searchButton: DMButton = {
-        let button = DMButton(title: Localized().search.search)
+        let button = DMButton(title: Localized.SearchString.search)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isHidden = true
         return button

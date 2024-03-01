@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-struct Image {
-    let speaker = UIImage(named: "audioSpeaker")
-    let englandFlag = UIImage(named: "englandFlag")
-    let logoIcon = UIImage(named: "icon")
-    let personPhoto = UIImage(named: "personPhoto")
-    let titleImg = UIImage(named: "title")
+enum Image {
+    static let speaker = UIImage(named: "audioSpeaker")
+    static let englandFlag = UIImage(named: "englandFlag")
+    static let logoIcon = UIImage(named: "icon")
+    static let personPhoto = UIImage(named: "personPhoto")
+    static let titleImg = UIImage(named: "title")
 }

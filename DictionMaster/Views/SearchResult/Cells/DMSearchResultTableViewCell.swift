@@ -20,7 +20,7 @@ final class DMSearchResultTableViewCell: UITableViewCell {
     
     let definitionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Color().primaryColor
+        label.textColor = Color.primaryColor
         label.numberOfLines = 0
         label.font = .SFProRounded(.bold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ final class DMSearchResultTableViewCell: UITableViewCell {
     
     let examplesLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Color().primaryColor
+        label.textColor = Color.primaryColor
         label.numberOfLines = 0
         label.font = .SFProRounded(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false

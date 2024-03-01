@@ -19,7 +19,7 @@ final class DMAudioButton: UIView {
     
     private let speakerImageView: UIImageView = {
         let imageView = UIImageView()
-        let image = Image().speaker
+        let image = Image.speaker
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -38,7 +38,7 @@ final class DMAudioButton: UIView {
     
     private func config() {
         roundCorners(radius: 23)
-        backgroundColor = Color().secondayColor
+        backgroundColor = Color.secondayColor
         isUserInteractionEnabled = true
         layer.masksToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
