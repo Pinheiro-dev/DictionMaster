@@ -10,6 +10,7 @@ import UIKit
 
 final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     static let identifier = "DMSearchResultFooterView"
+    private weak var delegate: DMSearchResultHeaderFooterDelegate?
 
     private let containerView: UIView = {
         let view = UIView()
@@ -32,15 +33,6 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
         return view
     }()
     
-    let titleBottomLabel: UILabel = {
-        let label = UILabel()
-        label.text = ""
-        label.textColor = Color.primaryColor
-        label.font = .SFProRounded(.bold, size: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let descriptioBottomLabel: UILabel = {
         let label = UILabel()
         label.text = Localized.SearchResultString.tryAnotherSearch
@@ -50,13 +42,20 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
         return label
     }()
     
+    let titleBottomLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textColor = Color.primaryColor
+        label.font = .SFProRounded(.bold, size: 24)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let newSearchButton: DMButton = {
         let button = DMButton(title: Localized.SearchResultString.newSearch)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    private weak var delegate: DMSearchResultHeaderFooterDelegate?
 
     // MARK: - Init
 

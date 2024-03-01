@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 final class DMButton: UIView {
-    
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.color = .white

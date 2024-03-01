@@ -14,7 +14,8 @@ protocol DMSerachResultFooterViewDelegate: AnyObject {
 
 final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
     static let identifier = "DMSearchResultHeaderView"
-
+    private weak var delegate: DMSearchResultHeaderFooterDelegate?
+    
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -46,7 +47,6 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
         return view
     }()
     
-    private weak var delegate: DMSearchResultHeaderFooterDelegate?
     var viewModel: DMSearchResultViewModelDelegate?
     
     // MARK: - Init

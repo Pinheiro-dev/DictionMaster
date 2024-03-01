@@ -8,8 +8,7 @@
 import UIKit
 
 final class DMSearchView: UIView {
-    
-    private var pill: DMPill = {
+    private let pill: DMPill = {
         let pill = DMPill()
         pill.translatesAutoresizingMaskIntoConstraints = false
         return pill

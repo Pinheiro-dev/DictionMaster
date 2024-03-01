@@ -28,7 +28,6 @@ enum ViewType {
 //MARK: - ViewModel
 
 final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
-    
     private var audio: String?
     private var player: AVAudioPlayer?
     private var result: [DictionaryModel]
@@ -134,17 +133,14 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             headerDelegate?.stopLoading()
             return
         }
-        self.api.downloadAudio(with: url) { [weak self] result in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let urlAudio):
-                    self.playSound(url: urlAudio)
-                case .failure(_):
-                    self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
-                                                  errorMessage: Localized.ErrorString.genericMessage)
-                    self.headerDelegate?.stopLoading()
-                }
+        api.downloadAudio(with: url) { result in
+            switch result {
+            case .success(let urlAudio):
+                self.playSound(url: urlAudio)
+            case .failure(_):
+                self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+                                              errorMessage: Localized.ErrorString.genericMessage)
+                self.headerDelegate?.stopLoading()
             }
         }
     }

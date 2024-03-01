@@ -8,7 +8,6 @@
 import UIKit
 
 final class DMPill: UIView {
-    
     private let viewPill: UIView = {
         let view = UIView()
         view.backgroundColor = Color.backgroundPill.withAlphaComponent(0.10)
@@ -75,5 +74,4 @@ final class DMPill: UIView {
             label.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
         ])
     }
-    
 }

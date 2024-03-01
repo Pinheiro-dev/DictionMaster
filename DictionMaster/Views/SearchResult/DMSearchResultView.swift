@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 final class DMSearchResultView: UIView {
-
     let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(DMSearchResultTableViewCell.self,

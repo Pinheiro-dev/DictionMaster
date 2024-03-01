@@ -8,8 +8,6 @@
 import UIKit
 
 final class DMPurchaseView: UIView {
-    let isSmallDevice = UIScreen.main.bounds.size.height <= 667 // iPhone SE size
-    
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
         let image = Image.personPhoto
@@ -87,6 +85,8 @@ final class DMPurchaseView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    let isSmallDevice = UIScreen.main.bounds.size.height <= 667 // iPhone SE size
     
     // MARK: - Init
     
