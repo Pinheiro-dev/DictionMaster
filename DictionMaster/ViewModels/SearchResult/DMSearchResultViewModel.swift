@@ -25,9 +25,11 @@ enum ViewType {
     case footer
 }
 
+//MARK: - ViewModel
+
 final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
-    var audio: String?
+    private var audio: String?
     private var player: AVAudioPlayer?
     private var result: [DictionaryModel]
     private var resultFormatted: WordDefinitionModel?
@@ -41,10 +43,6 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         self.result = result
         super.init()
         self.resultFormatted = self.formatResult(with: result)
-        self.setUpDelegateVariables()
-    }
-    
-    private func setUpDelegateVariables() {
         self.audio = resultFormatted?.audio
     }
     
@@ -68,11 +66,12 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private func formatResult(with result: [DictionaryModel]) -> WordDefinitionModel {
         let data = result[0]
         let title = data.word
-        let phonetic: String = data.phonetic ?? ""
+        var phonetic: String = ""
         let phonetics: [Phonetic]? = data.phonetics
         var audio: String?
-        if let phonetics = phonetics, let phonetic = phonetics.first(where: { !$0.audio.isEmpty }) {
-            audio = phonetic.audio
+        if let phonetics = phonetics, let phoneticModel = phonetics.first(where: { !$0.audio.isEmpty && ($0.text != nil) }) {
+            audio = phoneticModel.audio
+            phonetic = phoneticModel.text ?? data.phonetic ?? ""
         }
          
         

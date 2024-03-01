@@ -79,6 +79,7 @@ final class DMService {
             do {
                 let result = try JSONDecoder().decode(T.self, from: data)
                 self?.cacheManager.setCache(for: request.url, data: data)
+                self?.userDefaults.configSearch(word: request.param)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))

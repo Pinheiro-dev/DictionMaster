@@ -16,6 +16,7 @@ protocol DMSearchViewControllerDelegate: AnyObject {
 final class DMSearchViewController: UIViewController {
     private let customView = DMSearchView()
     private let viewModel: DMSearchViewModelDelegate = DMSearchViewModel()
+    private var buttomConstant: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +43,14 @@ final class DMSearchViewController: UIViewController {
     }
         
     @objc private func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.customView.bottomButtonConstraint.constant = -(keyboardSize.height + 20)
+        guard let constant = self.buttomConstant else {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                self.buttomConstant = -(keyboardSize.height + 20)
+                self.customView.bottomButtonConstraint.constant = -(keyboardSize.height + 20)
+            }
+            return
         }
+        self.buttomConstant = constant
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {

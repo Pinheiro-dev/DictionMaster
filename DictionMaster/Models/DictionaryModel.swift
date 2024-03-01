@@ -28,6 +28,6 @@ struct Definition: Codable {
 
 // MARK: - Phonetic
 struct Phonetic: Codable {
-    let text: String
+    let text: String?
     let audio: String
 }

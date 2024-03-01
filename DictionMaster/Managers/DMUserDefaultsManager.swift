@@ -21,11 +21,8 @@ final class DMUserDefaultsManager {
     public func isValidSearh(with string: String) -> Bool {
         guard let dateObject = userDefaults.object(forKey: keys.DATE) else {
             setDate()
-            setCountSearch()
-            setWord(string)
             return true
         }
-        
         
         let date = dateObject as! Date
         let day = date.get(.day)
@@ -34,22 +31,26 @@ final class DMUserDefaultsManager {
         let currentDay = currentDate.get(.day)
         let currentMonth = currentDate.get(.month)
         
-        if ((day == currentDay) && (month == currentMonth)) {
-            self.addCountSearch()
-        } else {
+        if !((day == currentDay) && (month == currentMonth)) {
             self.resetUserDefaults()
         }
         
         if (userDefaults.object(forKey: string.uppercased()) == nil) {
-            
             let count = userDefaults.integer(forKey: keys.COUNT_SEARCH)
-            if (count > 5) {
+            if (count > 4) {
                 return false
             }
-            setWord(string)
         }
         
         return true
+    }
+    
+    public func configSearch(word: String) {
+        if userDefaults.object(forKey: keys.COUNT_SEARCH) == nil {
+            setCountSearch()
+        }
+        self.addCountSearch()
+        self.setWord(word.uppercased())
     }
     
     //MARK: - private funcs
@@ -60,7 +61,7 @@ final class DMUserDefaultsManager {
     }
     
     private func setCountSearch(){
-        userDefaults.set(1, forKey: keys.COUNT_SEARCH)
+        userDefaults.set(0, forKey: keys.COUNT_SEARCH)
         userDefaults.synchronize()
     }
     

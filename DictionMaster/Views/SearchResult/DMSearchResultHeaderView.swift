@@ -48,6 +48,7 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
     
     private weak var delegate: DMSearchResultHeaderFooterDelegate?
     var viewModel: DMSearchResultViewModelDelegate?
+    
     // MARK: - Init
 
     override init(reuseIdentifier: String?) {
@@ -99,6 +100,8 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
             pronunciationLabel.centerYAnchor.constraint(equalTo: buttonSpeaker.centerYAnchor),
         ])        
     }
+    
+    //MARK: - Public funcs
     
     public func setDelegate(delegate: DMSearchResultHeaderFooterDelegate) {
         self.delegate = delegate
