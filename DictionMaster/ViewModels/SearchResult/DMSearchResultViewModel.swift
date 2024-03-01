@@ -32,7 +32,7 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private var player: AVAudioPlayer?
     private var result: [DictionaryModel]
     private var resultFormatted: WordDefinitionModel?
-    private let api: DMServiceManagerProtocol = DMServiceManager()
+    private let api: DMContentServiceProtocol = DMContentService()
     private weak var delegate: DMSearchResultViewControllerDelegate?
     private weak var headerDelegate: DMSerachResultFooterViewDelegate?
     

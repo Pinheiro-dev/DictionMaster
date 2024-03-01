@@ -32,7 +32,7 @@
 		9DD21B672B74493E00924998 /* DMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B662B74493E00924998 /* DMRequest.swift */; };
 		9DD21B692B74498C00924998 /* DMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B682B74498C00924998 /* DMEndpoint.swift */; };
 		9DD21B6B2B74508600924998 /* DMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B6A2B74508600924998 /* DMService.swift */; };
-		9DD21B6D2B74521A00924998 /* DMServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B6C2B74521A00924998 /* DMServiceManager.swift */; };
+		9DD21B6D2B74521A00924998 /* DMContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD21B6C2B74521A00924998 /* DMContentService.swift */; };
 		9DDC176A2B75C7F00006A33D /* DMUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC17692B75C7F00006A33D /* DMUserDefaultsManager.swift */; };
 		9DDD3DB42B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */; };
 		9DDD3DB52B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */; };
@@ -97,7 +97,7 @@
 		9DD21B662B74493E00924998 /* DMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMRequest.swift; sourceTree = "<group>"; };
 		9DD21B682B74498C00924998 /* DMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMEndpoint.swift; sourceTree = "<group>"; };
 		9DD21B6A2B74508600924998 /* DMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMService.swift; sourceTree = "<group>"; };
-		9DD21B6C2B74521A00924998 /* DMServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMServiceManager.swift; sourceTree = "<group>"; };
+		9DD21B6C2B74521A00924998 /* DMContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMContentService.swift; sourceTree = "<group>"; };
 		9DDC17692B75C7F00006A33D /* DMUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMUserDefaultsManager.swift; sourceTree = "<group>"; };
 		9DDD3DAB2B72BB2F0017BD10 /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
 		9DDD3DAC2B72BB2F0017BD10 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
@@ -290,7 +290,6 @@
 		9DD21B6E2B747BD200924998 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				9DD21B6C2B74521A00924998 /* DMServiceManager.swift */,
 				9D16097D2B75AAD00058F47D /* DMAPICacheManager.swift */,
 				9DDC17692B75C7F00006A33D /* DMUserDefaultsManager.swift */,
 			);
@@ -326,6 +325,7 @@
 		9DDD3DBE2B72CAA30017BD10 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				9DD21B6C2B74521A00924998 /* DMContentService.swift */,
 				9DD21B662B74493E00924998 /* DMRequest.swift */,
 				9DD21B682B74498C00924998 /* DMEndpoint.swift */,
 				9DD21B6A2B74508600924998 /* DMService.swift */,
@@ -545,7 +545,7 @@
 				9DD21B652B743B2D00924998 /* DictionaryModel.swift in Sources */,
 				9D96EA772B72A0AF00FCD59D /* SceneDelegate.swift in Sources */,
 				9DAC44FF2B751BFB003C5A02 /* DMSearchResultView.swift in Sources */,
-				9DD21B6D2B74521A00924998 /* DMServiceManager.swift in Sources */,
+				9DD21B6D2B74521A00924998 /* DMContentService.swift in Sources */,
 				9DD21B6B2B74508600924998 /* DMService.swift in Sources */,
 				9DD21B572B73E45200924998 /* DMPurchaseViewController.swift in Sources */,
 				9DDD3DC92B72D97D0017BD10 /* DMPill.swift in Sources */,
