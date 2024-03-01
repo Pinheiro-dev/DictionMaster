@@ -204,7 +204,7 @@ extension DMSearchResultViewModel: UITableViewDelegate, UITableViewDataSource {
      }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 138
+        return 186
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

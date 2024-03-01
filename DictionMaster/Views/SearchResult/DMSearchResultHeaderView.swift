@@ -79,7 +79,7 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
 
     private func addConstraints() {
          NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48),
             containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20.5),
             containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -43.5),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
