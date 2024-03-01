@@ -73,7 +73,6 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             audio = phoneticModel.audio
             phonetic = phoneticModel.text ?? data.phonetic ?? ""
         }
-         
         
         let item: [MeaningDefinition] = data.meanings.enumerated().compactMap({ index, element in
             let partOfSpeech = element.partOfSpeech;

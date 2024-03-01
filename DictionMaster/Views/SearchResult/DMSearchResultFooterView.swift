@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-protocol DMSearchResultFooterViewDelegate: AnyObject {
-    func didClickNewSearch()
-}
-
 final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     static let identifier = "DMSearchResultFooterView"
 

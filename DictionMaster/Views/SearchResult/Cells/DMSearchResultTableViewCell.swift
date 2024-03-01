@@ -36,7 +36,6 @@ final class DMSearchResultTableViewCell: UITableViewCell {
         return label
     }()
     
-    
     //MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -50,13 +49,6 @@ final class DMSearchResultTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
-    
-    override public func layoutSubviews() {
-            super.layoutSubviews()
-            if bounds.size != intrinsicContentSize {
-                invalidateIntrinsicContentSize()
-            }
-        }
 
     private func setUpViews() {
         contentView.addSubview(containerView)

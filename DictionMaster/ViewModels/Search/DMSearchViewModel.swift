@@ -16,7 +16,6 @@ protocol DMSearchViewModelDelegate: AnyObject {
 final class DMSearchViewModel: DMSearchViewModelDelegate {
     private weak var delegate: DMSearchViewControllerDelegate?
     private let api: DMServiceManagerProtocol = DMServiceManager()
-    private let userDefaults = DMUserDefaultsManager.shared
     
     private func showError(with error: Error) {
         guard let error = error as? DMServiceError else {
