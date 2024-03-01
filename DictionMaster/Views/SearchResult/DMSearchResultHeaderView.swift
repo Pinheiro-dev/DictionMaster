@@ -78,27 +78,47 @@ final class DMSearchResultHeaderView: UITableViewHeaderFooterView {
     }
 
     private func addConstraints() {
-         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 48),
-            containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20.5),
-            containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -43.5),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
-            titleLabel.heightAnchor.constraint(equalToConstant: 54),
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-
-            buttonSpeaker.heightAnchor.constraint(equalToConstant: 46),
-            buttonSpeaker.widthAnchor.constraint(equalToConstant: 46),
-            buttonSpeaker.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 13),
-            buttonSpeaker.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            buttonSpeaker.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -25),
-            
-            pronunciationLabel.leftAnchor.constraint(equalTo: buttonSpeaker.rightAnchor, constant: 11),
-            pronunciationLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            pronunciationLabel.centerYAnchor.constraint(equalTo: buttonSpeaker.centerYAnchor),
-        ])        
+        NSLayoutConstraint.activate(
+            [
+                containerView.topAnchor.constraint(
+                    equalTo: contentView.topAnchor,
+                    constant: 48
+                ),
+                containerView.leftAnchor.constraint(
+                    equalTo: contentView.leftAnchor,
+                    constant: 20.5
+                ),
+                containerView.rightAnchor.constraint(
+                    equalTo: contentView.rightAnchor,
+                    constant: -43.5
+                ),
+                containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                
+                titleLabel.heightAnchor.constraint(equalToConstant: 54),
+                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+                titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                
+                buttonSpeaker.heightAnchor.constraint(equalToConstant: 46),
+                buttonSpeaker.widthAnchor.constraint(equalToConstant: 46),
+                buttonSpeaker.topAnchor.constraint(
+                    equalTo: titleLabel.bottomAnchor,
+                    constant: 13
+                ),
+                buttonSpeaker.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                buttonSpeaker.bottomAnchor.constraint(
+                    equalTo: containerView.bottomAnchor,
+                    constant: -25
+                ),
+                
+                pronunciationLabel.leftAnchor.constraint(
+                    equalTo: buttonSpeaker.rightAnchor,
+                    constant: 11
+                ),
+                pronunciationLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                pronunciationLabel.centerYAnchor.constraint(equalTo: buttonSpeaker.centerYAnchor),
+            ]
+        )        
     }
     
     //MARK: - Public funcs

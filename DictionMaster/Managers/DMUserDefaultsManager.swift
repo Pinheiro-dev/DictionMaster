@@ -83,6 +83,4 @@ final class DMUserDefaultsManager {
         setDate()
         setCountSearch()
     }
-    
 }
-

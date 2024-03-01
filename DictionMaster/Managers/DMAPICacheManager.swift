@@ -14,18 +14,13 @@ final class DMAPICacheManager {
     private init() {}
     
     public func cachedResponse(for url: URL?) -> Data? {
-        guard let url = url else {
-            return nil
-        }
+        guard let url = url else { return nil }
         let key = url.absoluteString as NSString
         return apiDataCache.object(forKey: key) as? Data
     }
     
     public func setCache(for url: URL?, data: Data) {
-        guard let url = url else {
-            return
-        }
-        
+        guard let url = url else { return }
         let key = url.absoluteString as NSString
         let value = data as NSData
         apiDataCache.setObject(value, forKey: key)

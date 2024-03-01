@@ -87,37 +87,72 @@ final class DMSearchResultFooterView: UITableViewHeaderFooterView {
     }
 
     private func addConstraints() {
-         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            separatorView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 7),
-            separatorView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            separatorView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
-
-            bottomView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            bottomView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-
-            titleBottomLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 35.5),
-            titleBottomLabel.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20.5),
-            titleBottomLabel.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -43.5),
-            titleBottomLabel.bottomAnchor.constraint(equalTo: descriptioBottomLabel.topAnchor, constant: -8),
-
-
-            descriptioBottomLabel.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20.5),
-            descriptioBottomLabel.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -43.5),
-            descriptioBottomLabel.bottomAnchor.constraint(equalTo: newSearchButton.topAnchor, constant: -20),
-
-            newSearchButton.heightAnchor.constraint(equalToConstant: 64),
-            newSearchButton.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 17),
-            newSearchButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -16),
-            newSearchButton.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -31),
-        ])
+        NSLayoutConstraint.activate(
+            [
+                containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+                containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                
+                separatorView.heightAnchor.constraint(equalToConstant: 1),
+                separatorView.topAnchor.constraint(
+                    equalTo: containerView.topAnchor,
+                    constant: 7
+                ),
+                separatorView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                separatorView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                separatorView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
+                
+                bottomView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                bottomView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                bottomView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+                
+                titleBottomLabel.topAnchor.constraint(
+                    equalTo: bottomView.topAnchor,
+                    constant: 35.5
+                ),
+                titleBottomLabel.leftAnchor.constraint(
+                    equalTo: bottomView.leftAnchor,
+                    constant: 20.5
+                ),
+                titleBottomLabel.rightAnchor.constraint(
+                    equalTo: bottomView.rightAnchor,
+                    constant: -43.5
+                ),
+                titleBottomLabel.bottomAnchor.constraint(
+                    equalTo: descriptioBottomLabel.topAnchor,
+                    constant: -8
+                ),
+                
+                
+                descriptioBottomLabel.leftAnchor.constraint(
+                    equalTo: bottomView.leftAnchor,
+                    constant: 20.5
+                ),
+                descriptioBottomLabel.rightAnchor.constraint(
+                    equalTo: bottomView.rightAnchor,
+                    constant: -43.5
+                ),
+                descriptioBottomLabel.bottomAnchor.constraint(
+                    equalTo: newSearchButton.topAnchor,
+                    constant: -20
+                ),
+                
+                newSearchButton.heightAnchor.constraint(equalToConstant: 64),
+                newSearchButton.leftAnchor.constraint(
+                    equalTo: bottomView.leftAnchor,
+                    constant: 17
+                ),
+                newSearchButton.rightAnchor.constraint(
+                    equalTo: bottomView.rightAnchor,
+                    constant: -16
+                ),
+                newSearchButton.bottomAnchor.constraint(
+                    equalTo: bottomView.bottomAnchor,
+                    constant: -31
+                ),
+            ]
+        )
     }
     
     public func setDelegate(delegate: DMSearchResultHeaderFooterDelegate){

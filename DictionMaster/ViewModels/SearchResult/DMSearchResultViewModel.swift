@@ -48,9 +48,11 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     private func getFomattedDefinition(partOfSpeech: String, definition: String, index: Int) -> NSMutableAttributedString {
         let speechString = " [\(partOfSpeech)] "
         let fullString = "\(index.description))" + speechString + definition
-        let attributedString = fullString.attributedString(subStr: speechString,
-                                                           font: .SFProRounded(.bold, size: 16),
-                                                           color: Color.primaryColor.withAlphaComponent(0.50))
+        let attributedString = fullString.attributedString(
+            subStr: speechString,
+            font: .SFProRounded(.bold, size: 16),
+            color: Color.primaryColor.withAlphaComponent(0.50)
+        )
         return attributedString
     }
     
@@ -68,20 +70,26 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
         var phonetic: String = ""
         let phonetics: [Phonetic]? = data.phonetics
         var audio: String?
-        if let phonetics = phonetics, let phoneticModel = phonetics.first(where: { !$0.audio.isEmpty && ($0.text != nil) }) {
+        if let phonetics = phonetics, let phoneticModel = phonetics.first(where: {
+            !$0.audio.isEmpty && ($0.text != nil)
+        }) {
             audio = phoneticModel.audio
             phonetic = phoneticModel.text ?? data.phonetic ?? ""
         }
         
-        let item: [MeaningDefinition] = data.meanings.enumerated().compactMap({ index, element in
+        let item: [MeaningDefinition] = data.meanings.enumerated().compactMap({
+            index,
+            element in
             let partOfSpeech = element.partOfSpeech;
             let definitions = element.definitions
             
             let examplesArray: [String] = definitions.compactMap{ $0.example }
             let examples = getFormattedExamples(examples: examplesArray)
-            let definition = getFomattedDefinition(partOfSpeech: partOfSpeech,
-                                                   definition: definitions[0].definition,
-                                                   index: index+1)
+            let definition = getFomattedDefinition(
+                partOfSpeech: partOfSpeech,
+                definition: definitions[0].definition,
+                index: index+1
+            )
             
             
             return MeaningDefinition(definition: definition,
@@ -105,8 +113,10 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             player?.volume = 1.0
             player?.play()
         } catch {
-            delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
-                                          errorMessage: Localized.ErrorString.genericMessage)
+            delegate?.didAudioFailed(
+                errorTitle: Localized.ErrorString.genericTitleAudio,
+                errorMessage: Localized.ErrorString.genericMessage
+            )
         }
         headerDelegate?.stopLoading()
     }
@@ -128,8 +138,10 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
     func playAudio() {
         guard let audio = audio, let url = URL(string: audio) else {
-            delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
-                                          errorMessage: Localized.ErrorString.genericMessage)
+            delegate?.didAudioFailed(
+                errorTitle: Localized.ErrorString.genericTitleAudio,
+                errorMessage: Localized.ErrorString.genericMessage
+            )
             headerDelegate?.stopLoading()
             return
         }
@@ -138,8 +150,10 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             case .success(let urlAudio):
                 self.playSound(url: urlAudio)
             case .failure(_):
-                self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
-                                              errorMessage: Localized.ErrorString.genericMessage)
+                self.delegate?.didAudioFailed(
+                    errorTitle: Localized.ErrorString.genericTitleAudio,
+                    errorMessage: Localized.ErrorString.genericMessage
+                )
                 self.headerDelegate?.stopLoading()
             }
         }

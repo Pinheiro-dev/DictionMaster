@@ -19,20 +19,26 @@ final class DMSearchViewModel: DMSearchViewModelDelegate {
     
     private func showError(with error: Error) {
         guard let error = error as? DMServiceError else {
-            delegate?.didSearchFailed(errorTitle: Localized.ErrorString.genericTitleSearch,
-                                           errorMessage: Localized.ErrorString.genericMessageSearch)
+            delegate?.didSearchFailed(
+                errorTitle: Localized.ErrorString.genericTitleSearch,
+                errorMessage: Localized.ErrorString.genericMessageSearch
+            )
             return
         }
         
         switch error {
         case .notFoundWith(let notFoundModel):
-            delegate?.didSearchFailed(errorTitle: notFoundModel?.title ??  Localized.ErrorString.genericTitleSearch,
-                                           errorMessage: notFoundModel?.message ?? Localized.ErrorString.genericMessageSearch)
+            delegate?.didSearchFailed(
+                errorTitle: notFoundModel?.title ??  Localized.ErrorString.genericTitleSearch,
+                errorMessage: notFoundModel?.message ?? Localized.ErrorString.genericMessageSearch
+            )
         case .searchLimitExceeded:
             delegate?.goToPurchase()
         default:
-            delegate?.didSearchFailed(errorTitle:  Localized.ErrorString.genericTitleSearch,
-                                           errorMessage: Localized.ErrorString.genericMessageSearch)
+            delegate?.didSearchFailed(
+                errorTitle:  Localized.ErrorString.genericTitleSearch,
+                errorMessage: Localized.ErrorString.genericMessageSearch
+            )
         }
     }
     

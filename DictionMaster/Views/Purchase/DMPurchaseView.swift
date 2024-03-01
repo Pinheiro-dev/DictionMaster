@@ -118,34 +118,50 @@ final class DMPurchaseView: UIView {
             infoLabelTopConstant = 10
         }
         
-        NSLayoutConstraint.activate([
-            personImageView.topAnchor.constraint(equalTo: topAnchor),
-            personImageView.leftAnchor.constraint(equalTo: leftAnchor),
-            personImageView.rightAnchor.constraint(equalTo: rightAnchor),
-            personImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 39),
-            
-            logoImageView.heightAnchor.constraint(equalToConstant: logoImgHeight),
-            logoImageView.widthAnchor.constraint(equalToConstant: logoImgHeight),
-            logoImageView.topAnchor.constraint(equalTo: personImageView.bottomAnchor,
-                                               constant: -(logoImgHeight / 2)),
-            logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            titleImageView.heightAnchor.constraint(equalToConstant: 32),
-            titleImageView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: -17.85),
-            titleImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            infoLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: infoLabelTopConstant),
-            infoLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
-            infoLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
-            
-            priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
-            priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
-            priceLabel.bottomAnchor.constraint(equalTo: subscribeButton.topAnchor, constant: -16),
-            
-            subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
-            subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
-            subscribeButton.heightAnchor.constraint(equalToConstant: 64),
-            subscribeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -36)
-        ])
+        NSLayoutConstraint.activate(
+            [
+                personImageView.topAnchor.constraint(equalTo: topAnchor),
+                personImageView.leftAnchor.constraint(equalTo: leftAnchor),
+                personImageView.rightAnchor.constraint(equalTo: rightAnchor),
+                personImageView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 39),
+                
+                logoImageView.heightAnchor.constraint(equalToConstant: logoImgHeight),
+                logoImageView.widthAnchor.constraint(equalToConstant: logoImgHeight),
+                logoImageView.topAnchor.constraint(
+                    equalTo: personImageView.bottomAnchor,
+                    constant: -(logoImgHeight / 2)
+                ),
+                logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                titleImageView.heightAnchor.constraint(equalToConstant: 32),
+                titleImageView.topAnchor.constraint(
+                    equalTo: logoImageView.bottomAnchor,
+                    constant: -17.85
+                ),
+                titleImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                
+                infoLabel.topAnchor.constraint(
+                    equalTo: titleImageView.bottomAnchor,
+                    constant: infoLabelTopConstant
+                ),
+                infoLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
+                infoLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
+                
+                priceLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 23),
+                priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -23),
+                priceLabel.bottomAnchor.constraint(
+                    equalTo: subscribeButton.topAnchor,
+                    constant: -16
+                ),
+                
+                subscribeButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 18),
+                subscribeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -17),
+                subscribeButton.heightAnchor.constraint(equalToConstant: 64),
+                subscribeButton.bottomAnchor.constraint(
+                    equalTo: safeAreaLayoutGuide.bottomAnchor,
+                    constant: -36
+                )
+            ]
+        )
     }
 }

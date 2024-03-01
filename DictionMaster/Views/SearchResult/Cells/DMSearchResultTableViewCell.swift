@@ -56,21 +56,35 @@ final class DMSearchResultTableViewCell: UITableViewCell {
     }
 
     private func addConstrints() {
-        NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20.5),
-            containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -43.5),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
-            definitionLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            definitionLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            definitionLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            
-            examplesLabel.topAnchor.constraint(equalTo: definitionLabel.bottomAnchor, constant: 5),
-            examplesLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            examplesLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            examplesLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -30),
-        ])
+        NSLayoutConstraint.activate(
+            [
+                containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                containerView.leftAnchor.constraint(
+                    equalTo: contentView.leftAnchor,
+                    constant: 20.5
+                ),
+                containerView.rightAnchor.constraint(
+                    equalTo: contentView.rightAnchor,
+                    constant: -43.5
+                ),
+                containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                
+                definitionLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+                definitionLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                definitionLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                
+                examplesLabel.topAnchor.constraint(
+                    equalTo: definitionLabel.bottomAnchor,
+                    constant: 5
+                ),
+                examplesLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                examplesLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                examplesLabel.bottomAnchor.constraint(
+                    equalTo: containerView.bottomAnchor,
+                    constant: -30
+                ),
+            ]
+        )
     }
 
     override func prepareForReuse() {
