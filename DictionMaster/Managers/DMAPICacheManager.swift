@@ -28,6 +28,6 @@ final class DMAPICacheManager {
         
         let key = url.absoluteString as NSString
         let value = data as NSData
-        self.apiDataCache.setObject(value, forKey: key)
+        apiDataCache.setObject(value, forKey: key)
     }
 }

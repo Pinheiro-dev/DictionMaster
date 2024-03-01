@@ -106,10 +106,10 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
             player?.volume = 1.0
             player?.play()
         } catch {
-            self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+            delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
                                           errorMessage: Localized.ErrorString.genericMessage)
         }
-        self.headerDelegate?.stopLoading()
+        headerDelegate?.stopLoading()
     }
     
     
@@ -129,19 +129,22 @@ final class DMSearchResultViewModel: NSObject, DMSearchResultViewModelDelegate {
     
     func playAudio() {
         guard let audio = audio, let url = URL(string: audio) else {
-            self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+            delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
                                           errorMessage: Localized.ErrorString.genericMessage)
-            self.headerDelegate?.stopLoading()
+            headerDelegate?.stopLoading()
             return
         }
-        self.api.downloadAudio(with: url) { result in
-            switch result {
-            case .success(let urlAudio):
-                self.playSound(url: urlAudio)
-            case .failure(_):
-                self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
-                                              errorMessage: Localized.ErrorString.genericMessage)
-                self.headerDelegate?.stopLoading()
+        self.api.downloadAudio(with: url) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let urlAudio):
+                    self.playSound(url: urlAudio)
+                case .failure(_):
+                    self.delegate?.didAudioFailed(errorTitle: Localized.ErrorString.genericTitleAudio,
+                                                  errorMessage: Localized.ErrorString.genericMessage)
+                    self.headerDelegate?.stopLoading()
+                }
             }
         }
     }
@@ -154,9 +157,9 @@ extension DMSearchResultViewModel: DMSearchResultHeaderFooterDelegate {
     func didClick(with type: ViewType) {
         switch type {
         case .header:
-            self.playAudio()
+            playAudio()
         case .footer:
-            self.delegate?.pop()
+            delegate?.pop()
         }
     }
 }

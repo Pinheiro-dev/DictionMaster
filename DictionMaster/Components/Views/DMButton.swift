@@ -34,9 +34,9 @@ final class DMButton: UIView {
     init(title: String) {
         self.title = title
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        self.config()
-        self.setupViews()
-        self.addConstraints()
+        config()
+        setupViews()
+        addConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -52,7 +52,7 @@ final class DMButton: UIView {
     }
     
     private func setupViews() {
-        self.addSubviews(spinner, titleLabel)
+        addSubviews(spinner, titleLabel)
     }
     
     private func addConstraints() {

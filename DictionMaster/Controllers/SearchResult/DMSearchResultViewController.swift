@@ -51,8 +51,8 @@ final class DMSearchResultViewController: UIViewController {
     }
     
     private func bind() {
-        customView.tableView.delegate = self.viewModel.getInstance()
-        customView.tableView.dataSource = self.viewModel.getInstance()
+        customView.tableView.delegate = viewModel.getInstance()
+        customView.tableView.dataSource = viewModel.getInstance()
     }
 }
 
@@ -60,7 +60,7 @@ final class DMSearchResultViewController: UIViewController {
 
 extension DMSearchResultViewController: DMSearchResultViewControllerDelegate {
     func pop() {
-        self.navigationController?.pop()
+        navigationController?.pop()
     }
     
     func didAudioFailed(errorTitle: String, errorMessage: String) {

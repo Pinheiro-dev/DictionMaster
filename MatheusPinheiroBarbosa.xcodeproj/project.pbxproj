@@ -197,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				9D96EA822B72A0B100FCD59D /* Info.plist */,
+				9DB8CEFC2B921CC0001B142E /* App */,
 				9D194A892B7660B70071A4C5 /* Utils */,
 				9DDD3DBD2B72C8980017BD10 /* Resources */,
 				9DD21B6E2B747BD200924998 /* Managers */,
@@ -235,6 +236,15 @@
 				9DAC45002B751C16003C5A02 /* DMSearchResultViewModel.swift */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		9DB8CEFC2B921CC0001B142E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */,
+				9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		9DD21B522B73E3D900924998 /* Search */ = {
@@ -309,8 +319,6 @@
 				9D194A802B7658180071A4C5 /* Localization */,
 				9DDD3DAA2B72BAD70017BD10 /* Fonts */,
 				9D96EA7D2B72A0B100FCD59D /* Assets.xcassets */,
-				9D96EA742B72A0AF00FCD59D /* AppDelegate.swift */,
-				9D96EA762B72A0AF00FCD59D /* SceneDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

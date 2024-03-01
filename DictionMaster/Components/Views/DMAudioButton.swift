@@ -27,9 +27,9 @@ final class DMAudioButton: UIView {
     
     init(){
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        self.config()
-        self.setupViews()
-        self.addConstraints()
+        config()
+        setupViews()
+        addConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +45,7 @@ final class DMAudioButton: UIView {
     }
     
     private func setupViews() {
-        self.addSubviews(spinner, speakerImageView)
+        addSubviews(spinner, speakerImageView)
     }
     
     private func addConstraints() {

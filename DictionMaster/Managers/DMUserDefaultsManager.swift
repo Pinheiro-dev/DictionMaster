@@ -32,7 +32,7 @@ final class DMUserDefaultsManager {
         let currentMonth = currentDate.get(.month)
         
         if !((day == currentDay) && (month == currentMonth)) {
-            self.resetUserDefaults()
+            resetUserDefaults()
         }
         
         if (userDefaults.object(forKey: string.uppercased()) == nil) {
@@ -49,8 +49,8 @@ final class DMUserDefaultsManager {
         if userDefaults.object(forKey: keys.COUNT_SEARCH) == nil {
             setCountSearch()
         }
-        self.addCountSearch()
-        self.setWord(word.uppercased())
+        addCountSearch()
+        setWord(word.uppercased())
     }
     
     //MARK: - private funcs
@@ -80,8 +80,8 @@ final class DMUserDefaultsManager {
         let domain = Bundle.main.bundleIdentifier!
         userDefaults.removePersistentDomain(forName: domain)
         userDefaults.synchronize()
-        self.setDate()
-        self.setCountSearch()
+        setDate()
+        setCountSearch()
     }
     
 }
