@@ -23,7 +23,7 @@ final class DMSearchViewController: UIViewController {
         view.backgroundColor = .white
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow(notification:)),
-                                               name: UIResponder.keyboardWillShowNotification,
+                                               name: UIResponder.keyboardDidShowNotification,
                                                object: nil)
         
         viewModel.setDelegate(self)
@@ -44,7 +44,7 @@ final class DMSearchViewController: UIViewController {
         
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let constant = self.buttomConstant else {
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.buttomConstant = -(keyboardSize.height + 20)
                 self.customView.bottomButtonConstraint.constant = -(keyboardSize.height + 20)
             }
